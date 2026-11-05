@@ -1,4 +1,4 @@
-# HotelBook
+# TwoVago
 
 Proyecto final de Desarrollo Web.
 
