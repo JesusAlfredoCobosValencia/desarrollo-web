@@ -1,17 +1,17 @@
 # TwoVago
 
-Proyecto final de Desarrollo Web.
+Proyecto final de Desarrollo Web
 
 ## Descripción
 Plataforma web de búsqueda y reservación de hoteles,
 con perfiles de usuario, historial de estancias,
 cancelaciones y un sistema de pagos simulados
-con tiempo límite.
+con tiempo límite
 
 ## Integrantes
-- Jesús
-- Emanuel
-- Francisco
+- Jesús Alfredo Cobos Valencia
+- Emanuel Hernandez Ochoa
+- Francisco Baez Rodriguez
 
 ## Tecnologías
 - Java y Spring Boot
@@ -22,10 +22,10 @@ con tiempo límite.
 - WSL
 
 ## Estructura
-- backend: API REST y lógica del sistema.
-- frontend: Interfaces web.
-- database: Scripts de base de datos.
-- documentacion: Diseño, reportes y evidencias.
+- backend: API REST y lógica del sistema
+- frontend: Interfaces web
+- database: Scripts de base de datos
+- documentacion: Diseño, reportes y evidencias
 
-## Estado
-Entregable 1: Diseño inicial.
+## Estado Hasta El Momento
+Entregable 1: Diseño inicial
