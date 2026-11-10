@@ -1,132 +1,151 @@
 # Reporte de Avance del Proyecto
 
-**Equipo:** TwoVago  
-**Fecha:** 10/11/2026  
-**Número de reporte:** 1  
-**Integrantes:** Jesús Alfredo Cobos Valencia, Emanuel y Francisco Báez Rodríguez.  
-**Repositorio GitHub:** https://github.com/JesusAlfredoCobosValencia/desarrollo-web
+Equipo: TwoVago
+
+Fecha: 10 de noviembre de 2026
+
+Número de reporte: R1 — Análisis y diseño inicial
+
+Repositorio GitHub: https://github.com/JesusAlfredoCobosValencia/desarrollo-web
 
 ---
 
 # 1. Actividades realizadas
 
-Durante esta primera etapa se trabajó en la planificación y documentación inicial del proyecto TwoVago, una plataforma web para la búsqueda, comparación y reservación de habitaciones de hoteles.
+Durante el primer periodo de trabajo se establecieron las bases del proyecto TwoVago, una plataforma web de búsqueda y reservación de hoteles. Se realizaron las siguientes actividades:
 
-Las actividades realizadas fueron:
-
-- Creación y configuración del repositorio GitHub del proyecto.
-- Organización inicial de las carpetas para backend, frontend, base de datos y documentación.
-- Definición del objetivo, problemática y alcance general del sistema.
-- Elaboración del análisis y diseño inicial del proyecto.
-- Diseño del modelo de datos y del diagrama entidad-relación.
-- Definición de los endpoints REST necesarios para la comunicación entre frontend y backend.
-- Documentación del flujo de reservaciones, incluyendo el pago simulado con límite de tiempo, confirmaciones y vencimientos.
-- Diseño de las interfaces y definición de la navegación entre las secciones de la plataforma.
-- Configuración de Git en WSL para realizar commits y sincronizar los avances con GitHub.
+- Creación del repositorio `desarrollo-web` en GitHub y organización inicial de las carpetas para backend, frontend, base de datos y documentación.
+- Elaboración del archivo README con la descripción general del proyecto, sus integrantes y las tecnologías previstas.
+- Análisis de la problemática, definición de objetivos, alcance, actores y requerimientos funcionales y no funcionales.
+- Diseño del modelo de datos considerando las entidades principales: usuarios, hoteles, habitaciones, reservaciones y pagos.
+- Elaboración del diagrama entidad-relación para representar las entidades y sus relaciones.
+- Definición de los endpoints REST necesarios para gestionar usuarios, autenticación, hoteles, habitaciones, reservaciones y pagos simulados.
+- Diseño de interfaces y navegación del sistema para clientes y administradores.
+- Definición del flujo de reservaciones, incluyendo la validación de disponibilidad, generación de reservaciones pendientes de pago, plazo de 10 minutos para completar el pago simulado y expiración automática.
+- Definición de los estados de las reservaciones para distinguir las confirmadas, pendientes de pago, completadas, canceladas y expiradas.
+- Elaboración del diagrama de arquitectura de tres capas.
+- Distribución de responsabilidades entre los tres integrantes del equipo.
+- Organización de la documentación relacionada con el uso de inteligencia artificial generativa.
 
 # 2. Evidencias de trabajo
 
-| Actividad | Integrante responsable | Enlace a commit |
+Las siguientes contribuciones se identifican en el historial de GitHub del proyecto.
 
-| Estructura inicial, análisis y diseño del proyecto | Jesús | [7d2cc3f](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7d2cc3f) |
-
-| Modelo de datos y diagrama entidad-relación | Jesús | [cd8e639](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd8e639) |
-
-| Definición de endpoints REST | Jesús | [17707a1](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/17707a1) |
-
-| README y diagrama de TwoVago | Jesús | [d279655](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d279655) |
-
+| Actividad | Integrante responsable | Commit |
+|---|---|---|
+| Estructura inicial del repositorio | Jesús Alfredo Cobos Valencia | [d7590f3](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d7590f3) |
+| Análisis de TwoVago | Jesús Alfredo Cobos Valencia | [7d2cc3f](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7d2cc3f) |
+| Diagrama ER y modelo de datos | Jesús Alfredo Cobos Valencia | [cd8e639](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd8e639) |
+| Modificación del README | Jesús Alfredo Cobos Valencia | [025ea37](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/025ea37) |
+| Definición de endpoints | Jesús Alfredo Cobos Valencia | [17707a1](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/17707a1) |
+| README y diagrama | Emanuel | [d279655](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d279655) |
 | Documentación del flujo de reservaciones | Emanuel | [cd256cb](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd256cb) |
-
 | Diseño de interfaces y navegación | Francisco | [e12c460](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/e12c460) |
+| Distribución de responsabilidades | Jesús Alfredo Cobos Valencia | [d24e204](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d24e204) |
+| Diagrama de arquitectura de tres capas | Jesús Alfredo Cobos Valencia | [f1dcdae](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/f1dcdae) |
+| Documentación y estructura de uso de IA | Jesús Alfredo Cobos Valencia | [7fe85cc](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7fe85cc) |
+| Actualización del repositorio | Francisco Baez Rodriguez | [975254e](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/975254e) |
+| Integración de cambios a la rama principal | Francisco Baez Rodriguez | [4ceb0ad](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/4ceb0ad) |
 
-Las evidencias visuales se integrarán en la carpeta `documentacion/reportes/evidencias/`.
+Las capturas de pantalla complementarias se organizarán en `documentacion/reportes/evidencias/`, incluyendo el repositorio, los commits, los documentos de diseño y los diagramas.
 
 # 3. Problemas encontrados
 
-Durante la configuración y sincronización del repositorio se presentaron algunos inconvenientes:
+### Autenticación y permisos de GitHub
 
-**Problema 1. Autenticación con GitHub**
+Durante los primeros intentos de subir cambios al repositorio se presentaron errores de autenticación y posteriormente un error 403 por permisos insuficientes del token de acceso personal.
 
-Al realizar los primeros intentos de `git push`, GitHub rechazó las credenciales porque no permite utilizar la contraseña convencional de la cuenta para operaciones Git mediante HTTPS.
+Se revisaron los permisos del token y se autorizó el acceso al repositorio correspondiente. Después de realizar los ajustes, los cambios pudieron subirse correctamente mediante `git push`.
 
-**Solución:** Se generaron Personal Access Tokens (PAT) con los permisos correspondientes y se utilizaron para autenticar las operaciones de sincronización.
+### Visualización del diagrama Draw.io
 
-**Problema 2. Rechazo de actualización por diferencias entre ramas**
+Al abrir el archivo `.drawio` directamente desde Visual Studio Code se mostraba su contenido en formato XML, lo que generó confusión sobre su visualización.
 
-En uno de los equipos se presentó el error `non-fast-forward`, debido a que la rama local contenía un commit duplicado mientras que GitHub tenía cambios más recientes.
+Se comprobó que el archivo estaba correctamente guardado y que podía abrirse desde diagrams.net (Draw.io) para visualizar y editar el diagrama.
 
-**Solución:** Se actualizó la información remota mediante `git fetch`, se compararon los archivos modificados, se creó una rama de respaldo y se sincronizó la rama principal con `origin/main`, conservando los cambios originales del repositorio.
+### Organización de ramas e integración
+
+Durante la organización del repositorio se identificó una rama secundaria de respaldo de Francisco. Sus cambios se integraron a `main` mediante un merge y posteriormente se eliminó la rama secundaria.
+
+Se acordó continuar el trabajo utilizando únicamente la rama principal `main`, coordinando las actualizaciones entre los integrantes.
 
 # 4. Avance funcional
 
-En esta primera etapa se completó principalmente el análisis, diseño y documentación del sistema.
+El avance correspondiente a este primer reporte se concentra en el análisis, diseño y documentación del sistema. Todavía no se cuenta con una aplicación funcional ejecutándose.
 
-**Elementos desarrollados:**
+Elementos definidos en el diseño:
 
-- Repositorio GitHub organizado.
-- Descripción y análisis del proyecto.
-- Modelo de datos y diagrama entidad-relación.
-- Definición inicial de los endpoints REST.
-- Documentación del proceso de reservación.
-- Propuesta de interfaces y navegación.
+- Catálogo de hoteles y habitaciones.
+- Registro, autenticación y perfiles de usuarios.
+- Consulta y búsqueda de establecimientos.
+- Consulta de disponibilidad de habitaciones.
+- Creación y seguimiento de reservaciones.
+- Generación de pagos simulados con límite de tiempo.
+- Confirmación y expiración automática de reservaciones.
+- Cancelaciones e historial de estancias.
 
-**Funcionalidades pendientes de implementación:**
+Elementos pendientes de implementación:
 
-- Registro e inicio de sesión de usuarios.
-- Consulta y búsqueda de hoteles.
-- Administración de habitaciones y disponibilidad.
-- Creación y gestión de reservaciones.
-- Temporizador de pago simulado de 10 minutos.
-- Confirmación y cancelación de reservaciones.
-- Historial de estancias.
-- Panel administrativo.
-- Conexión entre frontend, backend y base de datos.
-
-En esta etapa todavía no se cuenta con una versión funcional integrada del sistema. Los avances corresponden a la documentación y definición de su estructura.
+- Configuración del proyecto backend con Spring Boot.
+- Creación y conexión de la base de datos MySQL.
+- Implementación de entidades y repositorios mediante JPA.
+- Desarrollo de controladores y servicios REST.
+- Implementación de validaciones de usuarios, habitaciones y reservaciones.
+- Desarrollo del mecanismo de expiración de pagos.
+- Construcción de las interfaces frontend.
+- Integración del frontend con los endpoints mediante Fetch.
+- Pruebas unitarias y de integración.
 
 # 5. Uso de IA generativa
 
-Durante esta etapa se utilizó ChatGPT como herramienta de apoyo para la organización y documentación del proyecto.
+Durante las actividades de análisis y documentación se utilizó inteligencia artificial generativa como herramienta de apoyo.
 
-- **Herramienta utilizada:** ChatGPT.
-- **Actividad para la que se utilizó:** Orientación sobre Git y GitHub, organización de documentación, definición de interfaces y redacción de documentos del proyecto.
-- **Código o contenido generado:** Propuestas de estructura y contenido para la documentación de interfaces y navegación, además de explicaciones de comandos y procedimientos de Git.
-- **Modificaciones realizadas por el equipo:** Revisión, adaptación e incorporación de la documentación al repositorio de TwoVago.
-- **Forma en que se verificó el resultado:** Revisión de los archivos en VS Code, comprobación de los commits y sincronización con GitHub.
+- Herramienta utilizada: ChatGPT.
+- Actividad para la que se utilizó: análisis de los requisitos del proyecto, selección y delimitación de la propuesta, organización del trabajo, diseño del modelo de datos, definición de endpoints, revisión de documentación y diseño del flujo de reservaciones.
+- Código o contenido generado: propuestas de documentación en Markdown, estructuras de diseño, explicaciones técnicas y apoyo en la elaboración de diagramas.
+- Modificaciones realizadas por el equipo: se revisaron las propuestas, se ajustaron al alcance de TwoVago y se establecieron las reglas de negocio, entidades, relaciones y responsabilidades del proyecto.
+- Forma en que se verificó el resultado: comparación con los requisitos establecidos por el profesor, revisión de los documentos relacionados y comprobación visual de los diagramas en Draw.io.
 
-El uso de IA para consultas y documentación deberá registrarse también en los formatos individuales correspondientes. La generación e integración de pruebas se documentará cuando se realice durante las siguientes etapas.
+Los registros individuales de consultas se encuentran organizados en `documentacion/IAG/`. Cada integrante deberá mantener actualizado su propio registro de acuerdo con las consultas que haya realizado.
 
 # 6. Participación individual
 
-**Jesús Alfredo Cobos Valencia:**
+Jesús Alfredo Cobos Valencia
 
-Responsable de la configuración inicial del repositorio, análisis y diseño del proyecto, modelo de datos, diagrama entidad-relación, definición de endpoints y documentación general inicial.
+- Creación y organización inicial del repositorio.
+- Análisis de la problemática y definición de los requerimientos.
+- Diseño del modelo de datos y elaboración del diagrama entidad-relación.
+- Definición de los endpoints REST.
+- Coordinación de la documentación general y la integración del proyecto.
 
-**Emanuel Hernández Ochoa:**
+Emanuel Hernandez Ochoa
 
-Responsable de documentar el flujo de reservaciones, incluyendo los estados de las operaciones, el proceso de pago simulado y el vencimiento de las reservaciones pendientes.
+- Colaboración en la actualización del README y los diagramas.
+- Documentación del flujo de reservaciones.
+- Definición de los procesos relacionados con pagos simulados, confirmaciones y expiraciones.
 
-**Francisco Báez Rodríguez:**
+Francisco Baez Rodriguez
 
-Responsable de documentar el diseño de interfaces y la navegación de TwoVago, definiendo las pantallas principales, sus elementos, funcionalidades y relación con los servicios del backend.
+- Elaboración de la documentación del diseño de interfaces y navegación.
+- Definición de las vistas y organización de la navegación del sistema.
+- Planeación del módulo de usuarios, autenticación y perfiles.
+
+Los tres integrantes tienen responsabilidades asignadas para la siguiente etapa de desarrollo y deberán continuar registrando sus contribuciones mediante commits realizados desde sus propias cuentas de GitHub.
 
 # 7. Próximas actividades
 
-- Completar la documentación de responsabilidades individuales del equipo.
-- Revisar la consistencia entre el modelo de datos, los endpoints y el flujo de reservaciones.
-- Preparar los registros individuales de uso de IA generativa.
-- Configurar el entorno de desarrollo backend con Java y Spring Boot desde WSL.
-- Preparar la conexión con MySQL mediante Hibernate/JPA.
-- Iniciar la implementación y las pruebas de los primeros endpoints REST.
-- Preparar el Release correspondiente al primer hito en GitHub.
+1. Revisar y completar la documentación del primer entregable.
+2. Incorporar las capturas de pantalla correspondientes a las evidencias de trabajo.
+3. Verificar los autores y enlaces directos de los commits del repositorio.
+4. Finalizar los registros individuales de uso de IA generativa.
+5. Preparar y publicar el Release 1 en GitHub.
+6. Comenzar la configuración del backend con Spring Boot y la conexión a MySQL.
+7. Iniciar la implementación de los módulos asignados a cada integrante.
 
 ---
 
 ## Observaciones adicionales
 
-El equipo ha establecido una división de actividades para facilitar el desarrollo paralelo del proyecto. Cada integrante cuenta con contribuciones identificables mediante commits realizados desde su propia cuenta de GitHub.
+El equipo acordó utilizar exclusivamente la rama principal `main` para continuar el desarrollo del proyecto. Los cambios realizados por los integrantes deberán integrarse de manera coordinada, manteniendo commits descriptivos y contribuciones identificables.
 
-Los documentos elaborados durante esta etapa servirán como referencia para la implementación del backend, frontend y base de datos.
-
-El desarrollo continuará mediante integraciones periódicas entre los módulos para mantener la compatibilidad de sus componentes.
+El primer reporte representa el avance de análisis y diseño de TwoVago. La implementación del sistema y las pruebas de funcionamiento se desarrollarán en los siguientes periodos de trabajo.
