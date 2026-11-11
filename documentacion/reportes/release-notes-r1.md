@@ -14,6 +14,7 @@ Se establecieron las características principales de la plataforma, su estructur
 
 Esta versión contiene documentación y diseños iniciales. La aplicación todavía no cuenta con funcionalidades implementadas y ejecutables.
 
+
 ## 2. Elementos incluidos
 
 ### Documentación general
@@ -21,19 +22,25 @@ Esta versión contiene documentación y diseños iniciales. La aplicación todav
 - Análisis y diseño de TwoVago.
 - Modelo de datos.
 - Definición de endpoints REST.
-- Distribución de responsabilidades.
+- Distribución de responsabilidades del equipo.
 - Diseño de interfaces y navegación.
 - Flujo de reservaciones.
+- Reporte de avance R1.
 
 ### Diagramas
 - Diagrama entidad-relación.
 - Diagrama de arquitectura de tres capas.
 
+### Evidencias del proyecto
+- Carpeta de evidencias visuales del primer entregable.
+- Diez capturas de pantalla que respaldan las actividades realizadas.
+- README con la descripción y organización de las evidencias.
+
 ### Documentación de inteligencia artificial
 - README de organización de registros IAG.
-- Declaración de uso de IA generativa.
+- Declaración de uso de IA generativa firmada.
 - Plantilla para sesiones de desarrollo con IA.
-- Registros individuales de consultas.
+- Archivos individuales `r-ia-doc.md` de los tres integrantes.
 
 ## 3. Funcionalidades definidas
 
@@ -65,24 +72,34 @@ Estas funcionalidades están definidas a nivel de diseño y quedan pendientes de
 - Git y GitHub.
 - WSL.
 
+
 ## 5. Contribuciones del equipo
 
-Jesús
-- Estructura inicial del repositorio.
-- Análisis del proyecto.
-- Modelo de datos y diagrama ER.
-- Definición de endpoints.
-- Arquitectura de tres capas.
-- Documentación general.
+### Jesús Alfredo Cobos Valencia
+- Creación de la estructura inicial del repositorio.
+- Análisis y definición de los requerimientos de TwoVago.
+- Diseño del modelo de datos y diagrama entidad-relación.
+- Definición de endpoints REST.
+- Elaboración del diagrama de arquitectura de tres capas.
+- Distribución de responsabilidades del equipo.
+- Organización de la documentación de IA generativa.
 
-Emanuel
+### Emanuel
 - Documentación del flujo de reservaciones.
-- Definición del proceso de pagos simulados.
-- Contribuciones al README y diagramas.
+- Definición del proceso de disponibilidad y pagos simulados.
+- Actualización de documentación general y diagramas.
 
-Francisco
-- Diseño de interfaces.
-- Documentación de navegación del sistema.
+### Francisco Báez Rodríguez
+- Actualización del README y diagramas del proyecto.
+- Diseño y documentación de interfaces y navegación.
+- Elaboración del reporte de avance R1.
+- Actualización del reporte de actividades.
+- Elaboración de las notas de versión R1.
+- Integración de cambios en la rama principal mediante Git.
+
+### Trabajo colaborativo
+
+Los tres integrantes participaron en la definición y documentación de los elementos correspondientes al análisis y diseño inicial de TwoVago.
 
 ## 6. Limitaciones conocidas
 

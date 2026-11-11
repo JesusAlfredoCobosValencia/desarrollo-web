@@ -29,25 +29,48 @@ Durante el primer periodo de trabajo se establecieron las bases del proyecto Two
 
 # 2. Evidencias de trabajo
 
-Las siguientes contribuciones se identifican en el historial de GitHub del proyecto.
+Las contribuciones individuales se respaldan mediante el historial de commits del repositorio de GitHub. También se incluyen capturas de pantalla de los documentos, diagramas y actividades realizadas durante el primer entregable.
+
+## 2.1. Historial de contribuciones
 
 | Actividad | Integrante responsable | Commit |
 |---|---|---|
+| Inicialización del repositorio | Jesús Alfredo Cobos Valencia | [fb76b3c](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/fb76b3c) |
 | Estructura inicial del repositorio | Jesús Alfredo Cobos Valencia | [d7590f3](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d7590f3) |
-| Análisis de TwoVago | Jesús Alfredo Cobos Valencia | [7d2cc3f](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7d2cc3f) |
-| Diagrama ER y modelo de datos | Jesús Alfredo Cobos Valencia | [cd8e639](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd8e639) |
+| Análisis y diseño de TwoVago | Jesús Alfredo Cobos Valencia | [7d2cc3f](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7d2cc3f) |
+| Modelo de datos y diagrama ER | Jesús Alfredo Cobos Valencia | [cd8e639](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd8e639) |
 | Modificación del README | Jesús Alfredo Cobos Valencia | [025ea37](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/025ea37) |
-| Definición de endpoints | Jesús Alfredo Cobos Valencia | [17707a1](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/17707a1) |
-| README y diagrama | Emanuel | [d279655](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d279655) |
-| Documentación del flujo de reservaciones | Emanuel | [cd256cb](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd256cb) |
-| Diseño de interfaces y navegación | Francisco | [e12c460](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/e12c460) |
+| Definición de endpoints REST | Jesús Alfredo Cobos Valencia | [17707a1](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/17707a1) |
+| Actualización del README y diagrama | Emanuel Hernández Ochoa | [d279655](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d279655) |
+| Documentación del flujo de reservaciones | Emanuel Hernández Ochoa | [cd256cb](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/cd256cb) |
+| Actualización del README y diagrama | Francisco Báez Rodríguez | [bea02e5](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/bea02e5) |
+| Diseño de interfaces y navegación | Francisco Báez Rodríguez | [e12c460](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/e12c460) |
 | Distribución de responsabilidades | Jesús Alfredo Cobos Valencia | [d24e204](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/d24e204) |
 | Diagrama de arquitectura de tres capas | Jesús Alfredo Cobos Valencia | [f1dcdae](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/f1dcdae) |
-| Documentación y estructura de uso de IA | Jesús Alfredo Cobos Valencia | [7fe85cc](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7fe85cc) |
-| Actualización del repositorio | Francisco Baez Rodriguez | [975254e](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/975254e) |
-| Integración de cambios a la rama principal | Francisco Baez Rodriguez | [4ceb0ad](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/4ceb0ad) |
+| Documentación de uso de IA generativa | Jesús Alfredo Cobos Valencia | [7fe85cc](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/7fe85cc) |
+| Integración de cambios a la rama main | Francisco Báez Rodríguez | [4ceb0ad](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/4ceb0ad) |
+| Creación del reporte R1 | Francisco Báez Rodríguez | [975254e](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/975254e) |
+| Actualización del reporte R1 | Francisco Báez Rodríguez | [862db96](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/862db96) |
+| Creación de las notas de versión R1 | Francisco Báez Rodríguez | [9d6f83d](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/9d6f83d) |
 
-Las capturas de pantalla complementarias se organizarán en `documentacion/reportes/evidencias/`, incluyendo el repositorio, los commits, los documentos de diseño y los diagramas.
+## 2.2. Evidencias visuales
+
+Se incluyen las siguientes capturas de pantalla como respaldo de las actividades realizadas:
+
+| Archivo | Descripción |
+|---|---|
+| [E1_01_Repositorio_GitHub.png](evidencias/E1_01_Repositorio_GitHub.png) | Repositorio y estructura general del proyecto. |
+| [E1_02_Analisis_TwoVago.png](evidencias/E1_02_Analisis_TwoVago.png) | Documento de análisis y diseño. |
+| [E1_03_Modelo_Datos.png](evidencias/E1_03_Modelo_Datos.png) | Diseño del modelo de datos. |
+| [E1_04_Diagrama_ER.png](evidencias/E1_04_Diagrama_ER.png) | Diagrama entidad-relación. |
+| [E1_05_EndPoints.png](evidencias/E1_05_EndPoints.png) | Definición de endpoints REST. |
+| [E1_06_Flujo_Reservaciones.png](evidencias/E1_06_Flujo_Reservaciones.png) | Flujo de reservaciones y pagos simulados. |
+| [E1_07_Diseno_Interfaces.png](evidencias/E1_07_Diseno_Interfaces.png) | Diseño de interfaces y navegación. |
+| [E1_08_Arquitectura.png](evidencias/E1_08_Arquitectura.png) | Diagrama de arquitectura de tres capas. |
+| [E1_09_Responsabilidades.png](evidencias/E1_09_Responsabilidades.png) | Distribución de responsabilidades del equipo. |
+| [E1_10_Documentacion_IAG.png](evidencias/E1_10_Documentacion_IAG.png) | Organización de la documentación de IA generativa. |
+
+Las evidencias originales se encuentran almacenadas en `documentacion/reportes/evidencias/`.
 
 # 3. Problemas encontrados
 
@@ -96,53 +119,59 @@ Elementos pendientes de implementación:
 - Integración del frontend con los endpoints mediante Fetch.
 - Pruebas unitarias y de integración.
 
+
 # 5. Uso de IA generativa
 
-Durante las actividades de análisis y documentación se utilizó inteligencia artificial generativa como herramienta de apoyo.
+Durante este entregable se utilizó ChatGPT como herramienta de apoyo para obtener ideas generales sobre la organización y el diseño de las interfaces de TwoVago. La consulta fue realizada por Jesús Alfredo Cobos Valencia y estuvo orientada a conocer posibles secciones, elementos de navegación y distribución de las pantallas de una plataforma de búsqueda y reservación de hoteles. La IA proporcionó propuestas de organización y referencias visuales que sirvieron como orientación para el diseño del proyecto. El equipo revisó estas sugerencias y decidió cómo adaptar las ideas a sus propios requerimientos. No se utilizó IA para generar, modificar o depurar código durante esta etapa. La consulta se encuentra documentada en el archivo individual `documentacion/IAG/integrante-1-Jesus/r-ia-doc.md`. Los registros de Emanuel y Francisco permanecen preparados para documentar consultas futuras.
 
-- Herramienta utilizada: ChatGPT.
-- Actividad para la que se utilizó: análisis de los requisitos del proyecto, selección y delimitación de la propuesta, organización del trabajo, diseño del modelo de datos, definición de endpoints, revisión de documentación y diseño del flujo de reservaciones.
-- Código o contenido generado: propuestas de documentación en Markdown, estructuras de diseño, explicaciones técnicas y apoyo en la elaboración de diagramas.
-- Modificaciones realizadas por el equipo: se revisaron las propuestas, se ajustaron al alcance de TwoVago y se establecieron las reglas de negocio, entidades, relaciones y responsabilidades del proyecto.
-- Forma en que se verificó el resultado: comparación con los requisitos establecidos por el profesor, revisión de los documentos relacionados y comprobación visual de los diagramas en Draw.io.
-
-Los registros individuales de consultas se encuentran organizados en `documentacion/IAG/`. Cada integrante deberá mantener actualizado su propio registro de acuerdo con las consultas que haya realizado.
 
 # 6. Participación individual
 
-Jesús Alfredo Cobos Valencia
+Las contribuciones individuales del equipo se identificaron mediante el historial de commits del repositorio de GitHub y los documentos elaborados durante el primer entregable.
 
-- Creación y organización inicial del repositorio.
-- Análisis de la problemática y definición de los requerimientos.
-- Diseño del modelo de datos y elaboración del diagrama entidad-relación.
-- Definición de los endpoints REST.
-- Coordinación de la documentación general y la integración del proyecto.
+### Jesús Alfredo Cobos Valencia
 
-Emanuel Hernandez Ochoa
+- Creación de la estructura inicial del repositorio.
+- Análisis del proyecto y definición de requerimientos.
+- Elaboración del modelo de datos y diagrama entidad-relación.
+- Definición de endpoints REST.
+- Documentación de la arquitectura de tres capas.
+- Elaboración de las responsabilidades del equipo.
+- Organización de la documentación de uso de IA generativa.
 
-- Colaboración en la actualización del README y los diagramas.
+### Emanuel
+
 - Documentación del flujo de reservaciones.
-- Definición de los procesos relacionados con pagos simulados, confirmaciones y expiraciones.
+- Descripción del proceso de disponibilidad.
+- Definición del proceso de pagos simulados y vencimiento de reservaciones.
+- Participación en la actualización de la documentación general y diagramas.
 
-Francisco Baez Rodriguez
+### Francisco Báez Rodríguez
 
-- Elaboración de la documentación del diseño de interfaces y navegación.
-- Definición de las vistas y organización de la navegación del sistema.
-- Planeación del módulo de usuarios, autenticación y perfiles.
+- Elaboración de la documentación del diseño de interfaces y navegación de TwoVago.
+- Propuesta de organización de las pantallas principales de la plataforma.
+- Actualización de documentación general y diagramas.
+- Elaboración y actualización del reporte de avance R1.
+- Elaboración de las notas de versión release-notes-r1.md.
+- Integración y actualización de archivos del proyecto mediante Git.
 
-Los tres integrantes tienen responsabilidades asignadas para la siguiente etapa de desarrollo y deberán continuar registrando sus contribuciones mediante commits realizados desde sus propias cuentas de GitHub.
+### Trabajo colaborativo
+
+Los integrantes participaron en la organización de la documentación, revisión de los diseños y preparación de los elementos correspondientes al primer entregable.
+
 
 # 7. Próximas actividades
 
-1. Revisar y completar la documentación del primer entregable.
-2. Incorporar las capturas de pantalla correspondientes a las evidencias de trabajo.
-3. Verificar los autores y enlaces directos de los commits del repositorio.
-4. Finalizar los registros individuales de uso de IA generativa.
-5. Preparar y publicar el Release 1 en GitHub.
-6. Comenzar la configuración del backend con Spring Boot y la conexión a MySQL.
-7. Iniciar la implementación de los módulos asignados a cada integrante.
+Para el siguiente hito del proyecto se realizarán las siguientes actividades:
 
----
+1. Crear el proyecto backend utilizando Spring Boot y preparar su estructura inicial.
+2. Configurar la base de datos MySQL y establecer la conexión con Spring Boot.
+3. Implementar las entidades, repositorios y relaciones mediante Hibernate/JPA.
+4. Desarrollar los endpoints REST correspondientes a los módulos asignados a cada integrante.
+5. Comenzar el desarrollo de las interfaces frontend y su conexión con la API mediante Fetch.
+6. Elaborar e integrar pruebas para verificar el funcionamiento de los módulos, utilizando IA generativa como apoyo y documentando las sesiones correspondientes.
+7. Configurar y comprobar la ejecución del proyecto desde WSL.
+8. Actualizar el README con las instrucciones necesarias para instalar, configurar y ejecutar el sistema.
 
 ## Observaciones adicionales
 
