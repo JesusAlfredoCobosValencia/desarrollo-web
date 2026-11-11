@@ -1,0 +1,99 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram name="Página-1" id="BLXAqX8oOHxU2LRFi4v8">
+    <mxGraphModel dx="3203" dy="1650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-18" value="TwoVago — Flujo de reservacion y pago simulado" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#24344A;" vertex="1" parent="1">
+          <mxGeometry x="710" y="130" width="880" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-19" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="1149.29" y="290" as="sourcePoint" />
+            <mxPoint x="1149.29" y="380" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-20" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;1. Inicio de sesión y busqueda.&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Destino, fechas de entra/salida y numero de huespedes.&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="837.5" y="200" width="625" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-21" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;2. Seleccion de hotel y habitación.&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Se consultan caracteristicas, precio y disponibilidad.&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="837.5" y="380" width="625" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-22" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="1149.17" y="470" as="sourcePoint" />
+            <mxPoint x="1149.17" y="560" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-23" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;3.Validacion en el backend.&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Se comprueba capacidad, fechas y reservaciones superpuestas.&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="843" y="560" width="625" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-24" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="1149.79" y="640" as="sourcePoint" />
+            <mxPoint x="1149.79" y="730" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-25" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;4. Creacion de la reservacion.&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;PENDIENTE_PAGO, folio, pago simulado, limite de 10 min.&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="838" y="730" width="625" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-26" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="1149.67" y="820" as="sourcePoint" />
+            <mxPoint x="1149.67" y="910" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-27" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;5. Pago simulado.&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;El usuario confirma antes de que venza el plazo.&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="843.5" y="910" width="625" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-28" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;¿Pago confrimado antes del limite?&lt;/font&gt;&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="992.75" y="1040" width="314.5" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-29" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="1150" y="1000" as="sourcePoint" />
+            <mxPoint x="1150.02" y="1040" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-30" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="6x6lNUgXYC6XCzHO1mwY-28">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="1420" y="1140" as="sourcePoint" />
+            <mxPoint x="1370" y="1360" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="1420" y="1145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-31" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#52657C;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="6x6lNUgXYC6XCzHO1mwY-28">
+          <mxGeometry x="-0.6667" y="50" relative="1" as="geometry">
+            <mxPoint x="990" y="1140" as="sourcePoint" />
+            <mxPoint x="920" y="1360" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="860" y="1145" />
+              <mxPoint x="860" y="1360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-32" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;NO&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="1110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-33" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;SI&lt;/b&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="1110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-34" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;CONFIRMADA&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Pago aprobado, la habitacion queda reservada para la estancia.&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="1300" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="6x6lNUgXYC6XCzHO1mwY-35" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;EXPIRADA&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Pago vencido, se libera la habitacion&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="1300" width="200" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
