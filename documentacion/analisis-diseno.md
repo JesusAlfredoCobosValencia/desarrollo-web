@@ -1,4 +1,3 @@
-
 # TwoVago — Análisis y diseño
 
 ## 1. Descripción del proyecto
@@ -17,13 +16,18 @@ Además, las reservaciones necesitan un seguimiento que permita identificar cuá
 
 TwoVago busca reunir estas operaciones en una sola plataforma para facilitar la búsqueda y administración de reservaciones.
 
-## 3. Objetivo general
+## 3. Justificación
+
+Se propone desarrollar TwoVago para facilitar la búsqueda y reservación de habitaciones de hotel mediante una plataforma que concentre información sobre establecimientos, precios, características y disponibilidad. El sistema permitirá gestionar las reservaciones desde una misma aplicación y dar seguimiento a sus estados mediante un proceso de pago simulado con tiempo límite. Además, su desarrollo permitirá aplicar los conocimientos adquiridos durante el curso sobre interfaces web, servicios REST, programación backend, bases de datos y comunicación entre aplicaciones.
+
+## 4. Objetivo general
 
 Desarrollar una aplicación web que permita buscar hoteles, consultar habitaciones y gestionar reservaciones mediante una arquitectura de tres capas, utilizando Java con Spring Boot, MySQL, Hibernate/JPA, HTML, CSS y JavaScript.
 
-## 4. Actores del sistema
+## 5. Actores del sistema
 
 ### Cliente
+
 - Registrarse e iniciar sesión.
 - Consultar hoteles y habitaciones.
 - Buscar alojamiento por destino y fechas.
@@ -34,6 +38,7 @@ Desarrollar una aplicación web que permita buscar hoteles, consultar habitacion
 - Consultar su historial de estancias y cancelaciones.
 
 ### Administrador
+
 - Registrar hoteles.
 - Modificar información de hoteles.
 - Eliminar hoteles cuando no tengan reservaciones que lo impidan.
@@ -41,7 +46,7 @@ Desarrollar una aplicación web que permita buscar hoteles, consultar habitacion
 - Modificar precios y características.
 - Consultar las reservaciones del sistema.
 
-## 5. Requerimientos funcionales
+## 6. Requerimientos funcionales
 
 - RF01. El sistema permitirá registrar usuarios.
 - RF02. Permitirá iniciar y cerrar sesión.
@@ -60,7 +65,7 @@ Desarrollar una aplicación web que permita buscar hoteles, consultar habitacion
 - RF15. Permitirá consultar las reservaciones canceladas y expiradas.
 - RF16. Permitirá al administrador gestionar hoteles y habitaciones.
 
-## 6. Requerimientos no funcionales
+## 7. Requerimientos no funcionales
 
 - El backend se desarrollará con Java y Spring Boot.
 - El frontend utilizará HTML, CSS y JavaScript.
@@ -72,7 +77,7 @@ Desarrollar una aplicación web que permita buscar hoteles, consultar habitacion
 - El proyecto deberá ejecutarse desde WSL.
 - El código fuente se mantendrá en GitHub.
 
-## 7. Reglas de negocio
+## 8. Reglas de negocio
 
 1. Para realizar una reservación, el usuario deberá iniciar sesión.
 2. La fecha de salida deberá ser posterior a la fecha de entrada.
@@ -86,7 +91,7 @@ Desarrollar una aplicación web que permita buscar hoteles, consultar habitacion
 10. Cada usuario solamente podrá consultar y administrar sus propias reservaciones.
 11. Los pagos serán simulados y no se realizarán transacciones bancarias reales.
 
-## 8. Alcance del proyecto
+## 9. Alcance del proyecto
 
 TwoVago contará inicialmente con un catálogo de hoteles de demostración almacenados en su propia base de datos.
 
