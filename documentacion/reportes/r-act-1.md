@@ -139,7 +139,7 @@ Las contribuciones individuales del equipo se identificaron mediante el historia
 - Elaboración de las responsabilidades del equipo.
 - Organización de la documentación de uso de IA generativa.
 
-### Emanuel
+### Emanuel Hernández Ochoa
 
 - Documentación del flujo de reservaciones.
 - Descripción del proceso de disponibilidad.

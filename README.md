@@ -10,8 +10,8 @@ con tiempo límite
 
 ## Integrantes
 - Jesús Alfredo Cobos Valencia
-- Emanuel Hernandez Ochoa
-- Francisco Baez Rodriguez
+- Emanuel Hernández Ochoa
+- Francisco Báez Rodríguez
 
 ## Tecnologías
 - Java y Spring Boot

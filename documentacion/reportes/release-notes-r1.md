@@ -84,7 +84,7 @@ Estas funcionalidades están definidas a nivel de diseño y quedan pendientes de
 - Distribución de responsabilidades del equipo.
 - Organización de la documentación de IA generativa.
 
-### Emanuel
+### Emanuel Hernández Ochoa
 - Documentación del flujo de reservaciones.
 - Definición del proceso de disponibilidad y pagos simulados.
 - Actualización de documentación general y diagramas.
