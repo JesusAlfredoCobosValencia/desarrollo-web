@@ -11,7 +11,7 @@ La API permitirá administrar usuarios, hoteles, habitaciones, reservaciones y p
 
 ## 2. Configuración general
 
-URL base: http://localhost:8080/api
+URL base: http://localhost:8082/api
 
 Tecnologías:
 - Java con Spring Boot.
@@ -66,7 +66,7 @@ Respuesta esperada: HTTP 201 Created
 
 La contraseña nunca deberá devolverse en las respuestas.
 
-La autenticación se realizará mediante sesiones administradas por Spring Security.
+La autenticación se realiza mediante sesiones HTTP del servidor (`HttpSession`) y cookie `JSESSIONID`. Las contraseñas se almacenan con BCrypt. El frontend debe enviar las peticiones con `credentials: "include"`. Los controladores verifican el usuario y el rol antes de permitir operaciones privadas o administrativas.
 
 ## 4. Endpoints de hoteles
 
@@ -277,3 +277,16 @@ Se probará:
 - Consulta de historial y cancelaciones.
 
 Las pruebas deberán documentar resultados exitosos y casos de error.
+
+
+## 11. Consulta administrativa de reservaciones
+
+| Método | Endpoint | Función | Acceso |
+|---|---|---|---|
+| GET | /api/reservaciones/admin | Consultar todas las reservaciones del sistema | ADMIN |
+
+## 12. Estado de implementación del backend
+
+Los endpoints descritos se encuentran implementados en el backend de esta versión. El registro de usuarios asigna inicialmente el rol `CLIENTE`. Para habilitar una cuenta administrativa se debe registrar primero y después cambiar su rol en MySQL mediante `database/promover_administrador.sql`.
+
+El pago es una simulación: no se envían datos bancarios ni se realizan cargos reales. La sesión se mantiene mediante la cookie `JSESSIONID`.

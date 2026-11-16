@@ -1,6 +1,6 @@
 # Evidencias del proyecto TwoVago
 
-**Entregable:** R2 — Backend basico y base de datos  
+**Entregables:** R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados  
 **Equipo:** TwoVago  
 **Repositorio:** https://github.com/JesusAlfredoCobosValencia/desarrollo-web
 
@@ -46,7 +46,7 @@ Cada imagen respalda una actividad específica del desarrollo del proyecto.
 
 Las evidencias documentan el avance de implementación del backend y la persistencia de datos de TwoVago.
 
-Los módulos adicionales de autenticación, reservaciones y pagos simulados continuarán desarrollándose e integrándose conforme al avance del proyecto.
+Las evidencias E2 corresponden al backend inicial. Para R3 se deberán agregar capturas con nomenclatura E3 de autenticación, perfiles, permisos, disponibilidad, reservaciones, pagos simulados, expiración y cancelación. El reporte automático se guarda en `../resultados-pruebas-e3.txt`.
 ## 6. Reporte relacionado
 
 El reporte correspondiente a estas evidencias es:
@@ -61,3 +61,14 @@ Las notas de la versión se encuentran en:
 
 Proyecto: TwoVago  
 Versión: R2 — Backend basico y base de datos 
+## 7. Evidencias R3 por recopilar
+
+- E3_07: registro, login y cierre de sesión.
+- E3_08: consulta y actualización de perfil.
+- E3_09: control de acceso por rol.
+- E3_10: consulta de habitaciones disponibles por fechas.
+- E3_11: creación de reservación y folio.
+- E3_12: confirmación del pago simulado.
+- E3_13: expiración de reservación pendiente.
+- E3_14: cancelación e historial.
+- E3_15: resultados de `resultados-pruebas-e3.txt`.

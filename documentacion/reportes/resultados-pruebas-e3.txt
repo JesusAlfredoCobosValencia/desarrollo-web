@@ -1,0 +1,55 @@
+TWOVAGO — RESULTADOS DE PRUEBAS DEL ENTREGABLE 3
+Inicio: 2026-11-16 01:01:21
+Fin: 2026-11-16 01:01:30
+API: http://localhost:8083
+
+[OK] API disponible — HTTP 200
+[OK] Consulta pública de hoteles — HTTP 200
+[OK] Consulta pública de habitaciones — HTTP 200
+[OK] Consulta de hotel inexistente — HTTP 404
+[OK] Filtro público de hoteles por ciudad — HTTP 200
+[OK] Reservar sin iniciar sesión — HTTP 401
+[OK] Registro de usuario — HTTP 201
+[OK] La respuesta de registro no expone contraseña — Se revisó el JSON de respuesta
+[OK] Registro duplicado — HTTP 409
+[OK] Registro con correo inválido — HTTP 400
+[OK] Inicio de sesión con contraseña incorrecta — HTTP 401
+[OK] Inicio de sesión correcto — HTTP 200
+[OK] El login devuelve el rol CLIENTE — Respuesta={'correo': 'prueba.e3.3358601516@twovago.test', 'fecha_registro': '2026-11-16T01:01:23.738015', 'id_usuario': 6, 'nombre': 'Usuario de Pruebas E3', 'rol': 'CLIENTE', 'telefono': '2281234567'}
+[OK] Consulta de perfil propio — HTTP 200
+[OK] Actualización del perfil — HTTP 200
+[OK] Rechazar fechas de reservación invertidas — HTTP 400
+[OK] Un cliente no puede crear hoteles — HTTP 403
+[OK] Un cliente no puede registrar habitaciones — HTTP 403
+[OK] Registro de segundo usuario — HTTP 201
+[OK] Inicio de sesión del segundo usuario — HTTP 200
+[OK] Consulta de disponibilidad (Hotel Central) — HTTP 200
+[OK] Crear reservación pendiente de pago — HTTP 201
+[OK] La reservación inicia como PENDIENTE_PAGO — Estado=PENDIENTE_PAGO
+[OK] El servidor calcula un total positivo — Total=1000.0
+[OK] La reservación genera un plazo de 10 minutos — Fecha límite=2026-11-16T01:11:25.54684333
+[OK] Consultar reservación propia — HTTP 200
+[OK] Consultar pago propio — HTTP 200
+[OK] Otro usuario no puede consultar reservación ajena — HTTP 403
+[OK] Otro usuario no puede consultar pago ajeno — HTTP 403
+[OK] Impedir doble reservación de la misma habitación — HTTP 409
+[OK] Rechazar método de pago no permitido — HTTP 400
+[OK] Confirmar pago simulado — HTTP 200
+[OK] El pago queda APROBADO — Estado=APROBADO
+[OK] Consultar mis reservaciones — HTTP 200
+[OK] La reservación confirmada aparece en mis reservas — Se buscó el identificador recién creado
+[OK] Cancelar reservación confirmada antes de la entrada — HTTP 200
+[OK] La reservación cambia a CANCELADA — Estado=CANCELADA
+[OK] Consultar cancelaciones y expiraciones — HTTP 200
+[OK] La cancelación aparece en el historial — Se buscó el identificador recién cancelado
+[OK] Consultar disponibilidad después de cancelar — HTTP 200
+[OK] La habitación se libera después de cancelar — Habitación 4
+[OK] Crear reservación para probar expiración — HTTP 201
+[OK] La tarea programada expira automáticamente la reservación — Estado=EXPIRADA
+[OK] La tarea programada expira el pago asociado — Estado=EXPIRADO
+[OK] Rechazar pago después del vencimiento — HTTP 409
+[OK] Cerrar sesión — HTTP 204
+[OK] Bloquear perfil después de cerrar sesión — HTTP 401
+[OMITIDA] CRUD positivo de administrador — Define TWOVAGO_ADMIN_EMAIL y TWOVAGO_ADMIN_PASSWORD para probarlo; el bloqueo para CLIENTE sí se probó
+
+RESUMEN: 47 correctas | 0 fallidas | 1 omitidas
