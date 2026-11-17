@@ -28,4 +28,5 @@ con tiempo límite
 - documentacion: Diseño, reportes y evidencias
 
 ## Estado Hasta El Momento
-Entregable 2: Backend basico y base de datos  
+Entregable 3: API REST completa 
+
