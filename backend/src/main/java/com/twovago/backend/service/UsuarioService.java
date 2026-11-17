@@ -6,7 +6,6 @@ import com.twovago.backend.model.RolUsuario;
 import com.twovago.backend.model.Usuario;
 import com.twovago.backend.repository.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,11 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+    public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     public Usuario registrarUsuario(String nombre, String correo, String password, String telefono) {
@@ -37,6 +34,7 @@ public class UsuarioService {
         }
 
         String correoNormalizado = correo.trim().toLowerCase();
+
         if (usuarioRepository.existsByCorreo(correoNormalizado)) {
             throw new ConflictException("El correo ya se encuentra registrado");
         }
@@ -44,21 +42,24 @@ public class UsuarioService {
         Usuario usuario = new Usuario();
         usuario.setNombre(nombre.trim());
         usuario.setCorreo(correoNormalizado);
-        usuario.setPasswordHash(passwordEncoder.encode(password));
+        usuario.setPasswordHash(password);
         usuario.setTelefono(telefono == null || telefono.isBlank() ? null : telefono.trim());
         usuario.setRol(RolUsuario.CLIENTE);
+
         return usuarioRepository.save(usuario);
     }
 
     @Transactional(readOnly = true)
     public Usuario autenticar(String correo, String password) {
         String normalizado = correo == null ? "" : correo.trim().toLowerCase();
+
         Usuario usuario = usuarioRepository.findByCorreo(normalizado)
                 .orElseThrow(() -> new UnauthorizedException("Correo o contraseña incorrectos"));
 
-        if (password == null || !passwordEncoder.matches(password, usuario.getPasswordHash())) {
+        if (password == null || !password.equals(usuario.getPasswordHash())) {
             throw new UnauthorizedException("Correo o contraseña incorrectos");
         }
+
         return usuario;
     }
 
@@ -70,11 +71,14 @@ public class UsuarioService {
 
     public Usuario actualizarPerfil(Long id, String nombre, String telefono) {
         Usuario usuario = obtenerUsuario(id);
+
         if (nombre == null || nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre es obligatorio");
         }
+
         usuario.setNombre(nombre.trim());
         usuario.setTelefono(telefono == null || telefono.isBlank() ? null : telefono.trim());
+
         return usuarioRepository.save(usuario);
     }
 }
