@@ -60,20 +60,32 @@ Las imágenes se encuentran almacenadas en `documentacion/reportes/evidencias/`.
 
 Los commits específicos de esta entrega deben consultarse en el historial de la rama principal. No se repiten los identificadores de R2 porque corresponden a la entrega anterior.
 
+
 ## 2.2. Evidencias de implementación
+
+Las siguientes evidencias documentan la implementación de los módulos del entregable R3 y las pruebas realizadas para comprobar su funcionamiento.
 
 | Archivo | Descripción |
 |---|---|
-| [E3_01_Entidad_Usuario.png](evidencias/E3_01_Entidad_Usuario.png) | Implementación de la entidad Usuario y definición de sus atributos para almacenar la información de las cuentas. |
-| [E3_02_Configuracion_Usuario.png](evidencias/E3_02_Configuracion_Usuario.png) | Configuración relacionada con el módulo de usuarios dentro del backend. |
-| [E3_03_UsuarioRepository.png](evidencias/E3_03_UsuarioRepository.png) | Desarrollo del repositorio de usuarios mediante JpaRepository y definición de consultas para localizar usuarios por correo. |
-| [E3_04_01_Dependencia_BCrypt.png](evidencias/E3_04_01_Dependencia_BCrypt.png) | Incorporación de la dependencia necesaria para utilizar BCrypt en el almacenamiento seguro de contraseñas. |
-| [E3_04_02_Compilacion_BCrypt.png](evidencias/E3_04_02_Compilacion_BCrypt.png) | Comprobación de la implementación y compilación del componente relacionado con BCrypt. |
-| [E3_04_03_UsuarioService.png](evidencias/E3_04_03_UsuarioService.png) | Implementación del servicio de usuarios, incluyendo validaciones, normalización del correo, codificación de contraseñas y asignación del rol CLIENTE. |
-| [E3_05_01_DTO_Registro.png](evidencias/E3_05_01_DTO_Registro.png) | Desarrollo del DTO utilizado para recibir los datos necesarios durante el registro de usuarios. |
-| [E3_05_02_DTO_Respuesta.png](evidencias/E3_05_02_DTO_Respuesta.png) | Implementación del DTO de respuesta para devolver información del usuario sin exponer su contraseña. |
-| [E3_05_03_Compilacion.png](evidencias/E3_05_03_Compilacion.png) | Evidencia del proceso de compilación de los componentes relacionados con el registro y respuesta de usuarios. |
-| [E3_06_UsuarioController.png](evidencias/E3_06_UsuarioController.png) | Implementación del controlador REST para recibir solicitudes de registro y gestionar las respuestas HTTP correspondientes. |
+| [E3_01_Entidad_Usuario.png](evidencias/E3_01_Entidad_Usuario.png) | Implementación de la entidad Usuario y definición de sus atributos. |
+| [E3_02_Compilacion_Usuario.png](evidencias/E3_02_Compilacion_Usuario.png) | Compilación de los componentes relacionados con el módulo de usuarios. |
+| [E3_03_UsuarioRepository.png](evidencias/E3_03_UsuarioRepository.png) | Implementación del repositorio de usuarios mediante JpaRepository. |
+| [E3_04_01_Dependencia_BCrypt.png](evidencias/E3_04_01_Dependencia_BCrypt.png) | Incorporación de la dependencia BCrypt para proteger las contraseñas. |
+| [E3_04_02_Compilacion_BCrypt.png](evidencias/E3_04_02_Compilacion_BCrypt.png) | Comprobación de la compilación del componente BCrypt. |
+| [E3_04_03_UsuarioService.png](evidencias/E3_04_03_UsuarioService.png) | Implementación del servicio de usuarios, validaciones y asignación de roles. |
+| [E3_05_01_DTO_Registro.png](evidencias/E3_05_01_DTO_Registro.png) | DTO para recibir los datos del registro de usuarios. |
+| [E3_05_02_DTO_Respuesta.png](evidencias/E3_05_02_DTO_Respuesta.png) | DTO de respuesta para evitar exponer las contraseñas. |
+| [E3_05_03_Compilacion.png](evidencias/E3_05_03_Compilacion.png) | Compilación de los componentes relacionados con el registro. |
+| [E3_06_01_UsuarioController.png](evidencias/E3_06_01_UsuarioController.png) | Implementación del controlador REST de usuarios. |
+| [E3_07_Registro_Login_Cierre.png](evidencias/E3_07_Registro_Login_Cierre.png) | Pruebas de registro, inicio de sesión y cierre de sesión. |
+| [E3_08_Perfil_Consulta_Actualizacion.png](evidencias/E3_08_Perfil_Consulta_Actualizacion.png) | Consulta y actualización del perfil del usuario autenticado. |
+| [E3_09_Control_Acceso_Roles.png](evidencias/E3_09_Control_Acceso_Roles.png) | Comprobación de permisos y restricciones según el rol del usuario. |
+| [E3_10_Consulta_Habitaciones_Disponibilidad.png](evidencias/E3_10_Consulta_Habitaciones_Disponibilidad.png) | Consulta de habitaciones disponibles y validación de fechas. |
+| [E3_11_Creacion_Reservaciones.png](evidencias/E3_11_Creacion_Reservaciones.png) | Creación de reservaciones pendientes de pago y generación de importes. |
+| [E3_12_Validacion_Procesamiento_Pagos.png](evidencias/E3_12_Validacion_Procesamiento_Pagos.png) | Validación y procesamiento de pagos simulados. |
+| [E3_13_Expiracion_Reservacion.png](evidencias/E3_13_Expiracion_Reservacion.png) | Comprobación de la expiración automática de reservaciones y pagos. |
+| [E3_14_Cancelacion_Historial.png](evidencias/E3_14_Cancelacion_Historial.png) | Cancelación de reservaciones, consulta del historial y liberación de habitaciones. |
+| [E3_15_Resultados_Pruebas.png](evidencias/E3_15_Resultados_Pruebas.png) | Resultados finales de la batería de pruebas automatizadas del entregable R3. |
 
 ## 2.3. Registro y autenticación de usuarios
 
@@ -138,24 +150,45 @@ Las pruebas permitieron comprobar el funcionamiento de las siguientes operacione
 
 También se comprobó que las reservaciones canceladas y expiradas dejen de bloquear la disponibilidad de las habitaciones.
 
+
 ## 2.7. Pruebas automatizadas
 
-Para reducir el tiempo de comprobación de los diferentes módulos se preparó una batería de pruebas automatizadas mediante Python.
+Para verificar el funcionamiento de los módulos desarrollados durante el entregable R3 se preparó una batería de pruebas automatizadas mediante Python.
+
 La ejecución se realiza utilizando el script:
+
 `scripts/validar_entregable3.sh`
+
 Los resultados se almacenan automáticamente en:
+
 `documentacion/reportes/resultados-pruebas-e3.txt`
+
 La ejecución final se realizó contra el backend iniciado en el puerto 8083.
+
 El reporte generado registró los siguientes resultados:
 
 | Resultado | Cantidad |
 |---|---:|
-| Pruebas correctas | 47 |
+| Pruebas correctas | 55 |
 | Pruebas fallidas | 0 |
-| Pruebas omitidas | 1 |
-| Total | 48 |
+| Pruebas omitidas | 0 |
+| Total | 55 |
 
-La única prueba omitida corresponde al CRUD positivo de administrador, debido a que todavía no se configuraron las variables de entorno `TWOVAGO_ADMIN_EMAIL` y `TWOVAGO_ADMIN_PASSWORD`. Las restricciones para usuarios CLIENTE sí fueron comprobadas.
+Las pruebas comprobaron el funcionamiento de los siguientes módulos:
+
+- Disponibilidad de hoteles y habitaciones.
+- Registro, inicio y cierre de sesión.
+- Consulta y actualización del perfil.
+- Validación de permisos según el rol del usuario.
+- Consulta de disponibilidad.
+- Creación y consulta de reservaciones.
+- Procesamiento y confirmación de pagos simulados.
+- Cancelación e historial de reservaciones.
+- Expiración automática de reservaciones y pagos.
+- Operaciones administrativas de hoteles y habitaciones.
+
+Todas las pruebas finalizaron correctamente, incluyendo las operaciones administrativas de registro, actualización y desactivación de hoteles y habitaciones.
+
 
 ---
 
@@ -169,71 +202,80 @@ Durante la implementación del controlador de usuarios se presentó un error de 
 
 Durante las primeras ejecuciones de la batería de pruebas se encontraron respuestas HTTP 404 y HTTP 400. Estos resultados se relacionaban con diferencias entre las rutas utilizadas por el script, los parámetros de las solicitudes y la configuración del servidor. Se revisaron las rutas y las solicitudes de prueba, ajustando la dirección de la API al puerto 8083 y los parámetros necesarios. Después de estos ajustes, las pruebas de disponibilidad, autenticación y reservaciones devolvieron las respuestas esperadas.
 
-### Pruebas administrativas pendientes
+### Pruebas administrativas completadas
 
-La batería de pruebas contempla una comprobación adicional del CRUD positivo de administrador. Esta prueba no se ejecutó porque no estaban configuradas las credenciales administrativas mediante las variables de entorno correspondientes. Las restricciones para impedir que un cliente realice operaciones administrativas sí se comprobaron correctamente.
+Durante las primeras ejecuciones de la batería de pruebas, las operaciones administrativas no se habían podido comprobar debido a que faltaba configurar las credenciales correspondientes mediante variables de entorno.
+
+Posteriormente se configuraron las credenciales del administrador y se ejecutó nuevamente la batería de pruebas. Se comprobó que:
+
+- El administrador puede iniciar sesión correctamente (HTTP 200).
+- Puede consultar las reservaciones administrativas (HTTP 200).
+- Puede registrar hoteles (HTTP 201).
+- Puede actualizar hoteles (HTTP 200).
+- Puede registrar habitaciones (HTTP 201).
+- Puede actualizar habitaciones (HTTP 200).
+- Puede desactivar habitaciones (HTTP 204).
+- Puede desactivar hoteles (HTTP 204).
+
+Con estos resultados, las operaciones administrativas quedaron comprobadas correctamente y se completaron las 55 pruebas del entregable R3.
 
 ---
 
+
 # 4. Avance funcional
 
-Durante esta tercera entrega se amplió el backend de TwoVago, incorporando los módulos necesarios para administrar usuarios, sesiones, reservaciones y pagos simulados.
+Durante esta tercera entrega se amplió el backend de TwoVago mediante la incorporación de los módulos de usuarios, autenticación, perfiles, reservaciones y pagos simulados.
 
 **Funcionalidades comprobadas:**
 
-- Consulta del catálogo de hoteles.
-- Consulta de habitaciones.
-- Consulta de recursos inexistentes con respuesta HTTP 404.
-- Registro de usuarios.
-- Validación de correos electrónicos.
+- Consulta pública de hoteles y habitaciones.
+- Registro de usuarios y validación de correos electrónicos.
 - Prevención de registros duplicados.
-- Almacenamiento de contraseñas mediante BCrypt.
+- Almacenamiento seguro de contraseñas mediante BCrypt.
 - Inicio y cierre de sesión.
 - Consulta y actualización del perfil.
-- Control de acceso mediante roles.
+- Control de acceso según el rol del usuario.
+- Restricción de operaciones administrativas para clientes.
 - Consulta de disponibilidad de habitaciones.
+- Validación de fechas de reservación.
 - Creación de reservaciones pendientes de pago.
-- Cálculo automático de importes.
-- Generación del plazo de 10 minutos para completar el pago.
+- Cálculo automático del importe de las reservaciones.
+- Generación de un plazo de 10 minutos para completar el pago.
 - Confirmación de pagos simulados.
 - Prevención de reservaciones duplicadas.
-- Consulta de reservaciones propias.
+- Consulta de reservaciones y pagos propios.
 - Cancelación de reservaciones.
-- Consulta del historial.
+- Consulta del historial de cancelaciones y expiraciones.
 - Expiración automática de reservaciones y pagos.
-- Liberación de habitaciones después de cancelaciones y expiraciones.
+- Liberación de habitaciones después de cancelaciones.
+- Operaciones administrativas para registrar, actualizar y desactivar hoteles y habitaciones.
 
-**Resultados de las pruebas:**
+**Resultados generales de las pruebas:**
 
-| Endpoint | Operación | Resultado |
-|---|---|---|
-| `/api/health` | GET | HTTP 200 |
-| `/api/hoteles` | GET | HTTP 200 |
-| `/api/habitaciones` | GET | HTTP 200 |
-| `/api/hoteles/999999999` | GET | HTTP 404 |
-| `/api/auth/registro` | POST | HTTP 201 |
-| `/api/auth/login` | POST | HTTP 200 |
-| `/api/auth/login` con contraseña incorrecta | POST | HTTP 401 |
-| `/api/usuarios/perfil` | GET | HTTP 200 |
-| `/api/usuarios/perfil` | PUT | HTTP 200 |
-| `/api/habitaciones/disponibles` | GET | HTTP 200 |
-| `/api/reservaciones` | POST | HTTP 201 |
-| `/api/auth/logout` | POST | HTTP 204 |
+| Resultado | Cantidad |
+|---|---:|
+| Pruebas correctas | 55 |
+| Pruebas fallidas | 0 |
+| Pruebas omitidas | 0 |
+| Total | 55 |
 
-**Resultados generales:**
+Las pruebas se ejecutaron mediante el script `scripts/validar_entregable3.sh`, utilizando el backend en el puerto 8083.
 
-La batería de pruebas automatizadas registró 47 pruebas correctas, ninguna fallida y una omitida por falta de credenciales administrativas.
+Se comprobaron las respuestas HTTP esperadas para las operaciones de consulta, registro, autenticación, reservaciones, pagos y administración.
+
+También se verificó que los clientes no puedan realizar operaciones administrativas y que los usuarios no puedan consultar información privada perteneciente a otras cuentas.
 
 **Funcionalidades pendientes:**
 
-- Desarrollo e integración de las interfaces funcionales del frontend.
+- Desarrollo e integración de las interfaces del frontend.
 - Conexión de las pantallas con los endpoints mediante Fetch.
-- Configuración del envío de cookies de sesión desde el frontend.
-- Pruebas completas del proceso de reservación desde el navegador.
-- Configuración de las credenciales administrativas y ejecución de la prueba pendiente.
+- Configuración del envío y mantenimiento de cookies para las sesiones HTTP.
+- Integración de las interfaces de búsqueda de hoteles y consulta de habitaciones.
+- Conexión del proceso de reservación con el módulo de pagos simulados.
+- Realización de pruebas completas desde el navegador.
 - Integración y validación final de los módulos desarrollados por los tres integrantes.
 
-El avance de esta entrega corresponde principalmente a la ampliación del backend y a la comprobación de sus operaciones mediante pruebas automatizadas. La conexión completa con las interfaces del frontend todavía requiere desarrollo.
+El avance de esta entrega corresponde principalmente al desarrollo y comprobación del backend. Las operaciones implementadas superaron las 55 pruebas automatizadas, mientras que el desarrollo de las interfaces y su integración completa con el frontend quedan como actividades para la siguiente etapa.
 
 ---
 
@@ -243,7 +285,11 @@ El avance de esta entrega corresponde principalmente a la ampliación del backen
 - **Actividad para la que se utilizó:** Apoyo durante la implementación del módulo de usuarios, autenticación, reservaciones y pagos simulados. También se utilizó para comprender errores de compilación, revisar el funcionamiento de sesiones HTTP y preparar pruebas automatizadas.
 - **Código o contenido generado:** Ejemplos de implementación en Java y Spring Boot, propuestas de corrección de errores, orientación para la integración de los módulos y apoyo en la elaboración de la batería de pruebas mediante Python.
 - **Modificaciones realizadas por el equipo:** Se revisaron los componentes generados y las modificaciones propuestas, se adaptaron a la estructura existente del backend y se realizaron ajustes en los controladores, servicios y solicitudes de prueba.
-- **Forma en que se verificó el resultado:** Se ejecutó el backend desde WSL y se realizaron pruebas automatizadas contra la API. Los resultados se almacenaron en el archivo `resultados-pruebas-e3.txt`, donde se registraron 47 pruebas correctas, 0 fallidas y 1 omitida.
+- **Forma en que se verificó el resultado:** Se ejecutó
+el backend desde WSL y se realizaron pruebas automatizadas
+contra la API. Los resultados se almacenaron en el archivo
+`resultados-pruebas-e3.txt`, donde se registraron 55 pruebas
+correctas, 0 fallidas y 0 omitidas.
 
 Los registros individuales del uso de inteligencia artificial deben mantenerse en `documentacion/IAG/`, mediante los archivos correspondientes a cada integrante.
 
