@@ -71,7 +71,12 @@ function cerrarSesion() {
         method: "POST",
         credentials: "include"
     })
-        .then(respuesta => respuesta.json());
+        .then(respuesta => {
+            if (respuesta.status == 204) {
+                return null;
+            }
+            return respuesta.json();
+        });
 }
 
 function obtenerPerfil() {
@@ -81,7 +86,7 @@ function obtenerPerfil() {
         .then(respuesta => respuesta.json());
 }
 
-function actualizarPerfil(nombre, correo, telefono) {
+function actualizarPerfil(nombre, telefono) {
     return fetch(url + "/usuarios/perfil", {
         method: "PUT",
         credentials: "include",
@@ -90,7 +95,6 @@ function actualizarPerfil(nombre, correo, telefono) {
         },
         body: JSON.stringify({
             nombre: nombre,
-            correo: correo,
             telefono: telefono
         })
     })

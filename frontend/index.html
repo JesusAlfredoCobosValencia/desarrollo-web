@@ -13,6 +13,166 @@
     </header>
     <main>
         <section>
+            <h2>Crear cuenta</h2>
+            <input type="text" id="regNombre" placeholder="Nombre completo">
+            <input type="email" id="regCorreo" placeholder="Correo electrónico">
+            <input type="password" id="regPassword" placeholder="Contraseña">
+            <input type="text" id="regTelefono" placeholder="Teléfono">
+            <button type="button" onclick="registrar()">
+                Registrarse
+            </button>
+        </section>
+        <section>
+            <h2>Iniciar sesión</h2>
+            <input type="email" id="loginCorreo" placeholder="Correo electrónico">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <button type="button" onclick="login()">
+                Entrar
+            </button>
+        </section>
+        <section>
+            <h2>Mi perfil</h2>
+            <p>Nombre:</p>
+            <input type="text" id="perfilNombre" placeholder="Nombre completo">
+            <p>Teléfono:</p>
+            <input type="text" id="perfilTelefono" placeholder="Teléfono">
+            <br><br>
+            <button type="button" onclick="verPerfil()">
+                Consultar perfil
+            </button>
+            <button type="button" onclick="guardarPerfil()">
+                Guardar cambios
+            </button>
+            <button type="button" onclick="salir()">
+                Cerrar sesión
+            </button>
+            <button type="button" onclick="verMisReservaciones()">
+                Mis reservaciones
+            </button>
+        </section>
+        <div id="mensajeUsuario"></div>
+        <input type="hidden" id="idPagoActual">
+        <section id="seccionPago" style="display: none;">
+            <h2>Pago de reservación</h2>
+            <p id="pagoFolio"></p>
+            <p id="pagoMonto"></p>
+            <h3>Tiempo para realizar el pago</h3>
+            <p id="contadorPago">10:00</p>
+            <p>Selecciona tu método de pago:</p>
+            <select id="metodoPago">
+                <option value="TARJETA_SIMULADA">Tarjeta</option>
+                <option value="TRANSFERENCIA_SIMULADA">Transferencia</option>
+                <option value="EFECTIVO_SIMULADO">Efectivo</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="consultarPagoActual()">
+                Consultar pago
+            </button>
+            <button type="button" onclick="pagarReservacion()">
+                Confirmar pago
+            </button>
+            <div id="mensajePago"></div>
+        </section>
+        <section id="seccionConfirmacion" style="display: none;">
+            <h2>¡Reservación confirmada!</h2>
+            <p id="confirmacionFolio"></p>
+            <p id="confirmacionHotel"></p>
+            <p id="confirmacionCiudad"></p>
+            <p id="confirmacionHabitacion"></p>
+            <p id="confirmacionTipo"></p>
+            <p id="confirmacionEntrada"></p>
+            <p id="confirmacionSalida"></p>
+            <p id="confirmacionHuespedes"></p>
+            <p id="confirmacionTotal"></p>
+            <p id="confirmacionEstado"></p>
+        </section>
+        <section id="seccionConfirmacion" style="display: none;">
+            <h2>¡Reservación confirmada!</h2>
+            <p id="confirmacionFolio"></p>
+            <p id="confirmacionHotel"></p>
+            <p id="confirmacionCiudad"></p>
+            <p id="confirmacionHabitacion"></p>
+            <p id="confirmacionTipo"></p>
+            <p id="confirmacionEntrada"></p>
+            <p id="confirmacionSalida"></p>
+            <p id="confirmacionHuespedes"></p>
+            <p id="confirmacionTotal"></p>
+            <p id="confirmacionEstado"></p>
+        </section>
+        <section id="seccionReservaciones">
+            <h2>Mis reservaciones</h2>
+            <button type="button" onclick="verMisReservaciones()">
+                Consultar reservaciones
+            </button>
+            <div id="mensajeReservaciones"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Folio</th>
+                        <th>Hotel</th>
+                        <th>Ciudad</th>
+                        <th>Habitación</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Huéspedes</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaReservaciones">
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Buscar hoteles</h2>
+            <input type="text" id="ciudad" placeholder="Escribe una ciudad">
+            <button onclick="buscar()">Buscar</button>
+        </section>
+        <section id="seccionConfirmacion" style="display: none;">
+            <h2>¡Reservación confirmada!</h2>
+            <p id="confirmacionFolio"></p>
+            <p id="confirmacionHotel"></p>
+            <p id="confirmacionCiudad"></p>
+            <p id="confirmacionHabitacion"></p>
+            <p id="confirmacionTipo"></p>
+            <p id="confirmacionEntrada"></p>
+            <p id="confirmacionSalida"></p>
+            <p id="confirmacionHuespedes"></p>
+            <p id="confirmacionTotal"></p>
+            <p id="confirmacionEstado"></p>
+        </section>
+        <section id="seccionReservaciones">
+            <h2>Mis reservaciones</h2>
+            <button type="button" onclick="verMisReservaciones()">
+                Consultar reservaciones
+            </button>
+            <div id="mensajeReservaciones"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Folio</th>
+                        <th>Hotel</th>
+                        <th>Ciudad</th>
+                        <th>Habitación</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Huéspedes</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaReservaciones">
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Buscar hoteles</h2>
+            <input type="text" id="ciudad" placeholder="Escribe una ciudad">
+            <button onclick="buscar()">Buscar</button>
+        </section>
+        <section>
             <h2>Buscar hoteles</h2>
             <input type="text" id="ciudad" placeholder="Escribe una ciudad">
             <button onclick="buscar()">Buscar</button>
