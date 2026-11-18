@@ -1,4 +1,3 @@
-
 # TwoVago — Diseño de API REST
 
 ## 1. Descripción
@@ -11,16 +10,16 @@ La API permitirá administrar usuarios, hoteles, habitaciones, reservaciones y p
 
 ## 2. Configuración general
 
-URL base: http://localhost:8082/api
+**URL base:** http://localhost:8082/api
 
-Tecnologías:
+**Tecnologías:**
 - Java con Spring Boot.
 - MySQL.
 - Hibernate/JPA.
 - JavaScript con Fetch.
 - JSON.
 
-Métodos HTTP:
+**Métodos HTTP:**
 - GET: consultar información.
 - POST: registrar información o ejecutar acciones.
 - PUT: actualizar información.
@@ -66,7 +65,7 @@ Respuesta esperada: HTTP 201 Created
 
 La contraseña nunca deberá devolverse en las respuestas.
 
-La autenticación se realiza mediante sesiones HTTP del servidor (`HttpSession`) y cookie `JSESSIONID`. Las contraseñas se almacenan con BCrypt. El frontend debe enviar las peticiones con `credentials: "include"`. Los controladores verifican el usuario y el rol antes de permitir operaciones privadas o administrativas.
+La autenticación se realiza mediante sesiones HTTP del servidor (`HttpSession`) y cookie `JSESSIONID`. El frontend debe enviar las peticiones con `credentials: "include"`. Los controladores verifican el usuario y el rol antes de permitir operaciones privadas o administrativas.
 
 ## 4. Endpoints de hoteles
 
@@ -277,7 +276,6 @@ Se probará:
 - Consulta de historial y cancelaciones.
 
 Las pruebas deberán documentar resultados exitosos y casos de error.
-
 
 ## 11. Consulta administrativa de reservaciones
 

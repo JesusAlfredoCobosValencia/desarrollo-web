@@ -1,84 +1,155 @@
 # TwoVago — Release R3
 
-**Versión:** R3 — Backend de usuarios, reservaciones y pagos simulados  
-**Fecha de desarrollo:** 15 de noviembre de 2026
+**Versión:** R3 — Usuarios, reservaciones y pagos simulados  
+**Fecha:** 17 de noviembre de 2026  
+**Repositorio:** https://github.com/JesusAlfredoCobosValencia/desarrollo-web
 
-## 1. Alcance
+---
 
-Esta versión amplía el backend inicial de hoteles y habitaciones. Se incorporan sesiones de usuario, perfiles, validación de disponibilidad, reservaciones y pagos simulados con límite de 10 minutos.
+## 1. Descripción de la versión
 
-## 2. Cambios incluidos
+Esta tercera versión de TwoVago amplía el backend desarrollado durante R2. Se incorporan los módulos de usuarios, autenticación, perfiles, reservaciones y pagos simulados.
 
-### Usuarios y sesiones
-- Registro con validación de datos y hash de contraseña BCrypt.
-- Inicio y cierre de sesión mediante `HttpSession` y cookie `JSESSIONID`.
+También se implementan restricciones de acceso por rol, consulta de disponibilidad, cancelación e historial de reservaciones y expiración automática de pagos pendientes. Las funciones se comprobaron mediante una batería de pruebas automatizadas.
+
+## 2. Elementos incluidos
+
+### Backend
+- Entidad `Usuario` y su repositorio.
+- Servicio para registro, autenticación y actualización de perfiles.
+- DTO para las solicitudes y respuestas de usuarios.
+- Controlador REST para autenticación y perfiles.
+- Sesiones HTTP mediante `HttpSession`.
+- Control de acceso para clientes y administradores.
+- Servicios y controladores de reservaciones y pagos.
+- Tarea programada para revisar reservaciones y pagos vencidos.
+- Manejo de errores y respuestas HTTP.
+
+### Base de datos
+- Actualización del esquema `twovago`.
+- Tablas para usuarios, reservaciones y pagos.
+- Relaciones entre usuarios, hoteles, habitaciones, reservaciones y pagos.
+- Scripts SQL para actualizar la base de datos y preparar datos de prueba.
+- Respaldo de la base de datos en `database/twovago.sql`.
+
+### Endpoints REST
+
+Se incorporaron las siguientes operaciones:
+
+- `POST /api/auth/registro`: registrar usuario.
+- `POST /api/auth/login`: iniciar sesión.
+- `POST /api/auth/logout`: cerrar sesión.
+- `GET /api/usuarios/perfil`: consultar perfil propio.
+- `PUT /api/usuarios/perfil`: actualizar perfil.
+- `GET /api/habitaciones/disponibles`: consultar habitaciones disponibles.
+- `POST /api/reservaciones`: crear reservación.
+- `GET /api/reservaciones/{id}`: consultar reservación propia.
+- `GET /api/reservaciones/mis-reservas`: consultar reservaciones actuales.
+- `GET /api/reservaciones/historial`: consultar historial.
+- `GET /api/reservaciones/cancelaciones`: consultar cancelaciones y expiraciones.
+- `GET /api/reservaciones/admin`: consultar reservaciones como administrador.
+- `PUT /api/reservaciones/{id}/cancelar`: cancelar reservación.
+- `GET /api/pagos/{id}`: consultar pago propio.
+- `POST /api/pagos/{id}/confirmar`: confirmar pago simulado.
+
+### Pruebas y ejecución
+- Compilación del backend mediante Maven.
+- Ejecución del backend de pruebas en el puerto 8083.
+- Pruebas de registro, autenticación y sesiones.
+- Pruebas de perfiles y permisos.
+- Pruebas de disponibilidad y reservaciones.
+- Pruebas de pagos simulados, cancelaciones y expiraciones.
+- Pruebas de operaciones administrativas.
+- Generación del archivo `documentacion/reportes/resultados-pruebas-e3.txt`.
+
+La ejecución final registró 55 pruebas correctas, 0 fallidas y 0 omitidas.
+
+### Documentación y evidencias
+- Actualización del reporte de avance R3.
+- Actualización de las notas de versión.
+- Capturas de implementación y pruebas E3_01 a E3_15.
+- Registro individual de uso de IA.
+- Actualización del README y de la documentación de evidencias.
+
+## 3. Funcionalidades implementadas
+
+Durante esta etapa se incorporaron las siguientes funciones:
+
+- Registro de usuarios y validación de correos.
+- Inicio y cierre de sesión.
+- Asignación automática del rol `CLIENTE`.
 - Consulta y actualización del perfil propio.
-- Respuestas de usuario sin exponer la contraseña ni su hash.
-- Verificación de acceso por usuario y rol.
+- Restricción de operaciones administrativas para clientes.
+- Administración de hoteles y habitaciones mediante el rol `ADMIN`.
+- Consulta de habitaciones disponibles por fechas y capacidad.
+- Creación de reservaciones y cálculo del importe desde el backend.
+- Plazo de 10 minutos para completar el pago simulado.
+- Confirmación de pagos simulados.
+- Consulta de reservaciones y pagos propios.
+- Prevención de reservaciones duplicadas.
+- Cancelación e historial de reservaciones.
+- Liberación de habitaciones después de una cancelación.
+- Expiración automática de reservaciones y pagos vencidos.
 
-### Hoteles y habitaciones
-- Se conservan las consultas públicas y las operaciones CRUD.
-- Las operaciones de alta, modificación y desactivación requieren rol `ADMIN`.
-- Se agrega la consulta de habitaciones disponibles por hotel, fechas y huéspedes.
-- Se validan datos básicos de hoteles y habitaciones.
+## 4. Tecnologías utilizadas
 
-### Reservaciones
-- Creación de reservaciones para usuarios autenticados.
-- Validación de fechas, capacidad y disponibilidad.
-- Bloqueo de la habitación durante la transacción para reducir conflictos por solicitudes simultáneas.
-- Cálculo del total en el backend a partir de noches y precio por noche.
-- Generación de folio y fecha límite de pago de 10 minutos.
-- Consulta de reservaciones propias, historial, cancelaciones y expiraciones.
-- Cancelación de reservaciones confirmadas antes de la fecha de entrada.
-- Consulta administrativa de todas las reservaciones.
+- Java 17.
+- Spring Boot 4.1.2.
+- Maven.
+- MySQL.
+- Hibernate / JPA.
+- Spring Data JPA.
+- Spring Web MVC.
+- Python.
+- Bash.
+- CURL.
+- Visual Studio Code.
+- WSL.
+- Git y GitHub.
 
-### Pagos simulados
-- Creación automática de un pago pendiente al generar una reservación.
-- Confirmación con métodos ficticios permitidos.
-- Rechazo de confirmaciones posteriores al vencimiento.
-- Actualización del pago y de la reservación al confirmar o expirar.
+## 5. Contribuciones del equipo
 
-### Automatización y errores
-- Tarea programada para expirar pagos pendientes y completar estancias cuya fecha de salida ya pasó.
-- Respuestas JSON para errores de validación, autenticación, permisos, recursos inexistentes y conflictos.
-- Configuración CORS para el desarrollo del frontend.
+### Jesús Alfredo Cobos Valencia
+- Incorporación de la entidad, repositorio, servicio, DTO y controlador inicial de usuarios.
+- Desarrollo e integración de componentes de perfiles, sesiones, reservaciones y pagos.
+- Ajustes de validaciones y controladores del backend.
 
-## 3. Endpoints incorporados
+### Emanuel Hernández Ochoa
+- Actualización del reporte R3 y del registro individual de IA.
+- Ajustes finales del servicio de usuarios y configuración del backend.
+- Actualización del respaldo SQL y de los resultados de pruebas.
 
-- `POST /api/auth/login`
-- `POST /api/auth/logout`
-- `GET /api/usuarios/perfil`
-- `PUT /api/usuarios/perfil`
-- `GET /api/habitaciones/disponibles`
-- `POST /api/reservaciones`
-- `GET /api/reservaciones/{id}`
-- `GET /api/reservaciones/mis-reservas`
-- `GET /api/reservaciones/historial`
-- `GET /api/reservaciones/cancelaciones`
-- `GET /api/reservaciones/admin`
-- `PUT /api/reservaciones/{id}/cancelar`
-- `GET /api/pagos/{id}`
-- `POST /api/pagos/{id}/confirmar`
+### Francisco Báez Rodríguez
+- Integración de evidencias de R3.
+- Actualización de documentación y resultados de pruebas.
+- Actualización de los registros de IA.
 
-## 4. Base de datos
+### Trabajo colaborativo
 
-Hibernate/JPA crea las tablas `reservaciones` y `pagos` al iniciar el backend cuando `spring.jpa.hibernate.ddl-auto=update`. También se agregó `database/actualizar_entregable3.sql` para crear las tablas manualmente.
+Los tres integrantes dieron seguimiento a los cambios del repositorio y a la integración de los módulos del backend. Las contribuciones de esta versión se encuentran registradas en los commits de la rama principal.
 
-## 5. Pruebas
+## 6. Limitaciones conocidas
 
-Se agregó `scripts/pruebas_entregable3.py`, que ejecuta pruebas HTTP de registro, inicio y cierre de sesión, perfiles, permisos, disponibilidad, reservaciones, pagos, cancelación y privacidad de datos. El resultado se guarda en `documentacion/reportes/resultados-pruebas-e3.txt`.
+En esta versión:
 
-Para compilar y ejecutar la batería se utiliza desde la raíz del repositorio:
+- Las interfaces del frontend todavía no están integradas con el backend.
+- Las pruebas de los flujos completos desde el navegador están pendientes.
+- Los pagos son simulados y no procesan transacciones bancarias reales.
+- La versión final conserva el valor recibido en el campo `password_hash` y lo compara directamente durante el inicio de sesión. No se utiliza BCrypt en esta versión.
+- La cookie de sesión está configurada para el entorno local de desarrollo; su configuración debe revisarse al desplegar el sistema con HTTPS.
 
-```bash
-bash scripts/validar_entregable3.sh
-```
+## 7. Próxima versión
 
-El script limpia y recompila el backend, lo inicia temporalmente en el puerto 8083 y ejecuta las pruebas contra esa instancia para evitar conectarse por error a un servidor anterior en el puerto 8082. Si `TWOVAGO_DB_PASSWORD` no está definida, solicita la contraseña de MySQL sin mostrarla. La prueba acelerada de expiración requiere el cliente `mysql`. Las pruebas administrativas requieren `TWOVAGO_ADMIN_EMAIL` y `TWOVAGO_ADMIN_PASSWORD` de una cuenta con rol `ADMIN`.
+La siguiente etapa estará enfocada en desarrollar e integrar el frontend de TwoVago:
 
-## 6. Pendientes de integración
+1. Desarrollar las pantallas de registro e inicio de sesión.
+2. Conectar el frontend con los endpoints mediante Fetch.
+3. Configurar el envío de cookies para mantener las sesiones HTTP.
+4. Integrar la búsqueda de hoteles y consulta de habitaciones.
+5. Conectar el proceso de reservación con los pagos simulados.
+6. Implementar las vistas de perfil, reservaciones e historial.
+7. Probar el flujo completo desde el navegador.
 
-- Conectar las interfaces del frontend con los endpoints.
-- Probar el flujo completo desde navegador con sesiones y cookies.
-- Ejecutar la batería automatizada en el entorno local del equipo y conservar el TXT generado.
-- Capturar evidencias de las operaciones del Entregable 3.
+---
+
+**Estado de la versión:** Backend de usuarios, autenticación, perfiles, disponibilidad, reservaciones y pagos simulados implementado y probado. La integración del frontend queda pendiente.
