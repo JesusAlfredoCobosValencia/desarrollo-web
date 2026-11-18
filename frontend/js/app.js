@@ -493,3 +493,83 @@ function cancelarMiReservacion(idReservacion) {
             mensaje.textContent = "Error al cancelar la reservación.";
         });
 }
+
+function verHistorial() {
+    let tabla = document.getElementById("tablaHistorial");
+    let mensaje = document.getElementById("mensajeHistorial");
+    tabla.innerHTML = "";
+    mensaje.textContent = "Consultando historial...";
+    obtenerHistorial()
+        .then(reservaciones => {
+            if (!Array.isArray(reservaciones)) {
+                mensaje.textContent = reservaciones.mensaje ||
+                    "Error al consultar el historial.";
+                return;
+            }
+            if (reservaciones.length == 0) {
+                mensaje.textContent = "No tienes estancias completadas.";
+                return;
+            }
+            reservaciones.forEach(reservacion => {
+                tabla.innerHTML += `
+                    <tr>
+                        <td>${reservacion.nombre_hotel}</td>
+                        <td>${reservacion.ciudad}</td>
+                        <td>${reservacion.numero_habitacion}</td>
+                        <td>${reservacion.fecha_entrada}</td>
+                        <td>${reservacion.fecha_salida}</td>
+                        <td>$${reservacion.total}</td>
+                        <td>${reservacion.estado}</td>
+                    </tr>
+                `;
+            });
+            mensaje.textContent = "Estancias encontradas: " +
+                reservaciones.length;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = "Error al consultar el historial.";
+        });
+}
+
+function verCancelaciones() {
+    let tabla = document.getElementById("tablaCancelaciones");
+    let mensaje = document.getElementById("mensajeCancelaciones");
+    tabla.innerHTML = "";
+    mensaje.textContent = "Consultando cancelaciones...";
+    obtenerCancelaciones()
+        .then(reservaciones => {
+            if (!Array.isArray(reservaciones)) {
+                mensaje.textContent = reservaciones.mensaje ||
+                    "Error al consultar las cancelaciones.";
+                return;
+            }
+            if (reservaciones.length == 0) {
+                mensaje.textContent = "No tienes cancelaciones ni reservaciones expiradas.";
+                return;
+            }
+            reservaciones.forEach(reservacion => {
+                let fechaCancelacion = "No aplica";
+                if (reservacion.fecha_cancelacion) {
+                    fechaCancelacion = reservacion.fecha_cancelacion.replace("T", " ");
+                }
+                tabla.innerHTML += `
+                    <tr>
+                        <td>${reservacion.nombre_hotel}</td>
+                        <td>${reservacion.numero_habitacion}</td>
+                        <td>${reservacion.fecha_entrada}</td>
+                        <td>${reservacion.fecha_salida}</td>
+                        <td>${fechaCancelacion}</td>
+                        <td>$${reservacion.total}</td>
+                        <td>${reservacion.estado}</td>
+                    </tr>
+                `;
+            });
+            mensaje.textContent = "Registros encontrados: " +
+                reservaciones.length;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = "Error al consultar las cancelaciones.";
+        });
+}

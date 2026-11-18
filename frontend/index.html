@@ -49,6 +49,12 @@
             <button type="button" onclick="verMisReservaciones()">
                 Mis reservaciones
             </button>
+            <button type="button" onclick="verHistorial()">
+                Historial de estancias
+            </button>
+            <button type="button" onclick="verCancelaciones()">
+                Cancelaciones
+            </button>
         </section>
         <div id="mensajeUsuario"></div>
         <input type="hidden" id="idPagoActual">
@@ -86,19 +92,6 @@
             <p id="confirmacionTotal"></p>
             <p id="confirmacionEstado"></p>
         </section>
-        <section id="seccionConfirmacion" style="display: none;">
-            <h2>¡Reservación confirmada!</h2>
-            <p id="confirmacionFolio"></p>
-            <p id="confirmacionHotel"></p>
-            <p id="confirmacionCiudad"></p>
-            <p id="confirmacionHabitacion"></p>
-            <p id="confirmacionTipo"></p>
-            <p id="confirmacionEntrada"></p>
-            <p id="confirmacionSalida"></p>
-            <p id="confirmacionHuespedes"></p>
-            <p id="confirmacionTotal"></p>
-            <p id="confirmacionEstado"></p>
-        </section>
         <section id="seccionReservaciones">
             <h2>Mis reservaciones</h2>
             <button type="button" onclick="verMisReservaciones()">
@@ -124,58 +117,54 @@
                 </tbody>
             </table>
         </section>
-        <section>
-            <h2>Buscar hoteles</h2>
-            <input type="text" id="ciudad" placeholder="Escribe una ciudad">
-            <button onclick="buscar()">Buscar</button>
-        </section>
-        <section id="seccionConfirmacion" style="display: none;">
-            <h2>¡Reservación confirmada!</h2>
-            <p id="confirmacionFolio"></p>
-            <p id="confirmacionHotel"></p>
-            <p id="confirmacionCiudad"></p>
-            <p id="confirmacionHabitacion"></p>
-            <p id="confirmacionTipo"></p>
-            <p id="confirmacionEntrada"></p>
-            <p id="confirmacionSalida"></p>
-            <p id="confirmacionHuespedes"></p>
-            <p id="confirmacionTotal"></p>
-            <p id="confirmacionEstado"></p>
-        </section>
-        <section id="seccionReservaciones">
-            <h2>Mis reservaciones</h2>
-            <button type="button" onclick="verMisReservaciones()">
-                Consultar reservaciones
+        <section id="seccionHistorial">
+            <h2>Historial de estancias</h2>
+            <button type="button" onclick="verHistorial()">
+                Consultar historial
             </button>
-            <div id="mensajeReservaciones"></div>
+            <div id="mensajeHistorial"></div>
             <table>
                 <thead>
                     <tr>
-                        <th>Folio</th>
                         <th>Hotel</th>
                         <th>Ciudad</th>
                         <th>Habitación</th>
                         <th>Entrada</th>
                         <th>Salida</th>
-                        <th>Huéspedes</th>
-                        <th>Total</th>
+                        <th>Importe</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody id="tablaReservaciones">
+                <tbody id="tablaHistorial">
+                </tbody>
+            </table>
+        </section>
+        <section id="seccionCancelaciones">
+            <h2>Cancelaciones y reservaciones expiradas</h2>
+            <button type="button" onclick="verCancelaciones()">
+                Consultar cancelaciones
+            </button>
+            <div id="mensajeCancelaciones"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hotel</th>
+                        <th>Habitación</th>
+                        <th>Entrada</th>
+                        <th>Salida</th>
+                        <th>Fecha de cancelación</th>
+                        <th>Importe</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCancelaciones">
                 </tbody>
             </table>
         </section>
         <section>
             <h2>Buscar hoteles</h2>
             <input type="text" id="ciudad" placeholder="Escribe una ciudad">
-            <button onclick="buscar()">Buscar</button>
-        </section>
-        <section>
-            <h2>Buscar hoteles</h2>
-            <input type="text" id="ciudad" placeholder="Escribe una ciudad">
-            <button onclick="buscar()">Buscar</button>
+            <button type="button" onclick="buscar()">Buscar</button>
         </section>
         <section>
             <h2>Hoteles disponibles</h2>

@@ -160,3 +160,17 @@ function confirmarPago(id, metodo) {
     })
         .then(respuesta => respuesta.json());
 }
+
+function obtenerHistorial() {
+    return fetch(url + "/reservaciones/historial", {
+        credentials: "include"
+    })
+        .then(respuesta => respuesta.json());
+}
+
+function obtenerCancelaciones() {
+    return fetch(url + "/reservaciones/cancelaciones", {
+        credentials: "include"
+    })
+        .then(respuesta => respuesta.json());
+}
