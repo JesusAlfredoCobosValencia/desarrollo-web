@@ -174,3 +174,135 @@ function obtenerCancelaciones() {
     })
         .then(respuesta => respuesta.json());
 }
+
+function registrarHotel(hotel) {
+    return fetch(url + "/hoteles", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(hotel)
+    })
+        .then(respuesta => respuesta.json());
+}
+
+function actualizarHotel(id, hotel) {
+    return fetch(url + "/hoteles/" + id, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(hotel)
+    })
+        .then(respuesta => respuesta.json());
+}
+
+function eliminarHotel(id) {
+    return fetch(url + "/hoteles/" + id, {
+        method: "DELETE",
+        credentials: "include"
+    })
+        .then(respuesta => {
+            if (respuesta.status == 204) {
+                return { correcto: true };
+            }
+            return respuesta.json();
+        });
+}
+
+function registrarHabitacion(hotelId, habitacion) {
+    return fetch(url + "/habitaciones?hotelId=" + hotelId, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(habitacion)
+    })
+        .then(respuesta => respuesta.json());
+}
+
+function actualizarHabitacion(id, habitacion) {
+    return fetch(url + "/habitaciones/" + id, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(habitacion)
+    })
+        .then(respuesta => respuesta.json());
+}
+
+function eliminarHabitacion(id) {
+    return fetch(url + "/habitaciones/" + id, {
+        method: "DELETE",
+        credentials: "include"
+    })
+        .then(respuesta => {
+            if (respuesta.status == 204) {
+                return { correcto: true };
+            }
+            return respuesta.json();
+        });
+}
+
+function obtenerReservacionesAdmin() {
+    return fetch(url + "/reservaciones/admin", {
+        credentials: "include"
+    })
+        .then(respuesta => respuesta.json());
+}
+
+function registrarHabitacion(hotelId, habitacion) {
+    return fetch(url + "/habitaciones?hotelId=" + hotelId, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(habitacion)
+    }).then(async respuesta => {
+        let datos = await respuesta.json().catch(() => null);
+        if (!respuesta.ok) {
+            throw new Error(datos?.mensaje || datos?.message || datos?.error || "Error al registrar la habitación.");
+        }
+        return datos;
+    });
+}
+
+function actualizarHabitacion(id, habitacion) {
+    return fetch(url + "/habitaciones/" + id, {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(habitacion)
+    }).then(async respuesta => {
+        let datos = await respuesta.json().catch(() => null);
+        if (!respuesta.ok) {
+            throw new Error(datos?.mensaje || datos?.message || datos?.error || "Error al actualizar la habitación.");
+        }
+        return datos;
+    });
+}
+
+function desactivarHabitacion(id) {
+    return fetch(url + "/habitaciones/" + id, {
+        method: "DELETE",
+        credentials: "include"
+    }).then(respuesta => {
+        if (!respuesta.ok) {
+            return respuesta.json().then(datos => {
+                throw new Error(datos.mensaje || datos.message || datos.error || "Error al desactivar la habitación.");
+            }).catch(error => {
+                if (error.message) throw error;
+                throw new Error("Error al desactivar la habitación.");
+            });
+        }
+        return null;
+    });
+}

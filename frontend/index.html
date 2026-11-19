@@ -55,6 +55,9 @@
             <button type="button" onclick="verCancelaciones()">
                 Cancelaciones
             </button>
+            <button type="button" id="botonAdmin" style="display: none;" onclick="abrirPanelAdmin()">
+                Panel administrativo
+            </button>
         </section>
         <div id="mensajeUsuario"></div>
         <input type="hidden" id="idPagoActual">
@@ -160,6 +163,86 @@
                 <tbody id="tablaCancelaciones">
                 </tbody>
             </table>
+        </section>
+        <section id="seccionAdmin" style="display: none;">
+            <h2>Panel administrativo</h2>
+            <section>
+                <h3>Administrar hoteles</h3>
+                <input type="hidden" id="hotelId">
+                <input type="text" id="hotelNombre" placeholder="Nombre del hotel">
+                <input type="text" id="hotelCiudad" placeholder="Ciudad">
+                <input type="text" id="hotelDireccion" placeholder="Dirección">
+                <textarea id="hotelDescripcion" placeholder="Descripción"></textarea>
+                <input type="number" id="hotelCategoria" placeholder="Categoría de 1 a 5" min="1" max="5">
+                <input type="text" id="hotelImagenUrl" placeholder="URL de imagen">
+                <input type="text" id="hotelServicios" placeholder="Servicios">
+                <button type="button" onclick="guardarHotel()">Guardar hotel</button>
+                <button type="button" onclick="limpiarHotel()">Limpiar campos</button>
+                <div id="mensajeHotelesAdmin"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Ciudad</th>
+                            <th>Dirección</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaHotelesAdmin"></tbody>
+                </table>
+            </section>
+            <section>
+                <h3>Administrar habitaciones</h3>
+                <input type="hidden" id="habitacionId">
+                <select id="hotelHabitacion" onchange="cargarHabitacionesAdmin()">
+                    <option value="">Selecciona un hotel</option>
+                </select>
+                <input type="text" id="habitacionNumero" placeholder="Número de habitación">
+                <input type="text" id="habitacionTipo" placeholder="Tipo de habitación">
+                <input type="number" id="habitacionCapacidad" placeholder="Capacidad">
+                <input type="number" id="habitacionPrecio" placeholder="Precio por noche" step="0.01">
+                <textarea id="habitacionDescripcion" placeholder="Descripción"></textarea>
+                <button type="button" onclick="guardarHabitacion()">Guardar habitación</button>
+                <button type="button" onclick="limpiarHabitacion()">Limpiar campos</button>
+                <div id="mensajeHabitacionesAdmin"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Número</th>
+                            <th>Tipo</th>
+                            <th>Capacidad</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaHabitacionesAdmin"></tbody>
+                </table>
+            </section>
+            <section>
+                <h3>Reservaciones de la plataforma</h3>
+                <button type="button" onclick="consultarReservacionesAdmin()">
+                    Consultar reservaciones
+                </button>
+                <div id="mensajeReservacionesAdmin"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Usuario</th>
+                            <th>Hotel</th>
+                            <th>Habitación</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaReservacionesAdmin"></tbody>
+                </table>
+            </section>
         </section>
         <section>
             <h2>Buscar hoteles</h2>

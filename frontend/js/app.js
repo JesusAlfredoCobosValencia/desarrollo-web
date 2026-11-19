@@ -1,4 +1,5 @@
 let temporizadorPago;
+let rolUsuarioActual = "";
 
 function cargarHoteles() {
     obtenerHoteles()
@@ -339,15 +340,25 @@ function login() {
     let correo = document.getElementById("loginCorreo").value;
     let password = document.getElementById("loginPassword").value;
     let mensaje = document.getElementById("mensajeUsuario");
+
     if (correo == "" || password == "") {
         mensaje.textContent = "Completa tu correo y contraseña.";
         return;
     }
+
     iniciarSesion(correo, password)
         .then(respuesta => {
             if (respuesta.mensaje) {
+                rolUsuarioActual = "";
+                document.getElementById("botonAdmin").style.display = "none";
                 mensaje.textContent = respuesta.mensaje;
                 return;
+            }
+            rolUsuarioActual = respuesta.rol;
+            if (rolUsuarioActual == "ADMIN") {
+                document.getElementById("botonAdmin").style.display = "inline-block";
+            } else {
+                document.getElementById("botonAdmin").style.display = "none";
             }
             mensaje.textContent = "Bienvenido, " + respuesta.nombre;
         })
@@ -410,6 +421,9 @@ function salir() {
             document.getElementById("loginPassword").value = "";
             document.getElementById("perfilNombre").value = "";
             document.getElementById("perfilTelefono").value = "";
+            rolUsuarioActual = "";
+            document.getElementById("botonAdmin").style.display = "none";
+            document.getElementById("seccionAdmin").style.display = "none";
             mensaje.textContent = "Sesión cerrada correctamente.";
         })
         .catch(error => {
@@ -571,5 +585,418 @@ function verCancelaciones() {
         .catch(error => {
             console.log("Error:", error);
             mensaje.textContent = "Error al consultar las cancelaciones.";
+        });
+}
+
+function abrirPanelAdmin() {
+    if (rolUsuarioActual != "ADMIN") {
+        alert("No tienes permisos para acceder.");
+        return;
+    }
+    document.getElementById("seccionAdmin").style.display = "block";
+    cargarHotelesAdmin();
+}
+
+function cargarHotelesAdmin() {
+    let tabla = document.getElementById("tablaHotelesAdmin");
+    let mensaje = document.getElementById("mensajeHotelesAdmin");
+    tabla.innerHTML = "";
+    mensaje.textContent = "Consultando hoteles...";
+    obtenerHoteles()
+        .then(hoteles => {
+            if (!Array.isArray(hoteles)) {
+                mensaje.textContent = hoteles.mensaje ||
+                    "Error al consultar hoteles.";
+                return;
+            }
+            if (hoteles.length == 0) {
+                mensaje.textContent = "No hay hoteles registrados.";
+                return;
+            }
+            mostrarHotelesAdmin(hoteles);
+            cargarHotelesSelect(hoteles);
+            mensaje.textContent = "Hoteles encontrados: " + hoteles.length;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = "Error al consultar hoteles.";
+        });
+}
+
+function mostrarHotelesAdmin(hoteles) {
+    let tabla = document.getElementById("tablaHotelesAdmin");
+    tabla.innerHTML = "";
+    hoteles.forEach(hotel => {
+        tabla.innerHTML += `
+            <tr>
+                <td>${hotel.idHotel}</td>
+                <td>${hotel.nombre}</td>
+                <td>${hotel.ciudad}</td>
+                <td>${hotel.direccion}</td>
+                <td>${hotel.categoria || "Sin categoría"}</td>
+                <td>
+                    <button type="button" onclick="editarHotel(${hotel.idHotel})">
+                        Editar
+                    </button>
+                    <button type="button" onclick="desactivarHotel(${hotel.idHotel})">
+                        Desactivar
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+function cargarHotelesSelect(hoteles) {
+    let select = document.getElementById("hotelHabitacion");
+    select.innerHTML = '<option value="">Selecciona un hotel</option>';
+    hoteles.forEach(hotel => {
+        select.innerHTML += `
+            <option value="${hotel.idHotel}">
+                ${hotel.nombre}
+            </option>
+        `;
+    });
+}
+
+function limpiarHotel() {
+    document.getElementById("hotelId").value = "";
+    document.getElementById("hotelNombre").value = "";
+    document.getElementById("hotelCiudad").value = "";
+    document.getElementById("hotelDireccion").value = "";
+    document.getElementById("hotelDescripcion").value = "";
+    document.getElementById("hotelCategoria").value = "";
+    document.getElementById("hotelImagenUrl").value = "";
+    document.getElementById("hotelServicios").value = "";
+}
+
+function guardarHotel() {
+    let id = document.getElementById("hotelId").value;
+    let nombre = document.getElementById("hotelNombre").value;
+    let ciudad = document.getElementById("hotelCiudad").value;
+    let direccion = document.getElementById("hotelDireccion").value;
+    let mensaje = document.getElementById("mensajeHotelesAdmin");
+    if (nombre == "" || ciudad == "" || direccion == "") {
+        mensaje.textContent = "Completa nombre, ciudad y dirección.";
+        return;
+    }
+    let hotel = {
+        nombre: nombre,
+        ciudad: ciudad,
+        direccion: direccion,
+        descripcion: document.getElementById("hotelDescripcion").value,
+        categoria: document.getElementById("hotelCategoria").value == "" ?
+            null : parseInt(document.getElementById("hotelCategoria").value),
+        imagenUrl: document.getElementById("hotelImagenUrl").value,
+        servicios: document.getElementById("hotelServicios").value
+    };
+    let peticion;
+
+    if (id == "") {
+        peticion = registrarHotel(hotel);
+    } else {
+        peticion = actualizarHotel(id, hotel);
+    }
+    mensaje.textContent = "Guardando hotel...";
+    peticion
+        .then(respuesta => {
+            if (respuesta.mensaje) {
+                mensaje.textContent = respuesta.mensaje;
+                return;
+            }
+            mensaje.textContent = id == "" ?
+                "Hotel registrado correctamente." :
+                "Hotel actualizado correctamente.";
+
+            limpiarHotel();
+            cargarHotelesAdmin();
+            cargarHoteles();
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = "Error al guardar el hotel.";
+        });
+}
+
+function editarHotel(id) {
+    obtenerHotel(id)
+        .then(hotel => {
+            if (hotel.mensaje) {
+                document.getElementById("mensajeHotelesAdmin").textContent =
+                    hotel.mensaje;
+                return;
+            }
+            document.getElementById("hotelId").value = hotel.idHotel;
+            document.getElementById("hotelNombre").value = hotel.nombre;
+            document.getElementById("hotelCiudad").value = hotel.ciudad;
+            document.getElementById("hotelDireccion").value = hotel.direccion;
+            document.getElementById("hotelDescripcion").value =
+                hotel.descripcion || "";
+            document.getElementById("hotelCategoria").value =
+                hotel.categoria || "";
+            document.getElementById("hotelImagenUrl").value =
+                hotel.imagenUrl || "";
+            document.getElementById("hotelServicios").value =
+                hotel.servicios || "";
+
+            document.getElementById("mensajeHotelesAdmin").textContent =
+                "Modificando hotel: " + hotel.nombre;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            document.getElementById("mensajeHotelesAdmin").textContent =
+                "Error al consultar el hotel.";
+        });
+}
+
+function desactivarHotel(id) {
+    if (!confirm("¿Deseas desactivar este hotel?")) {
+        return;
+    }
+    eliminarHotel(id)
+        .then(respuesta => {
+            if (respuesta.mensaje) {
+                document.getElementById("mensajeHotelesAdmin").textContent =
+                    respuesta.mensaje;
+                return;
+            }
+            document.getElementById("mensajeHotelesAdmin").textContent =
+                "Hotel desactivado correctamente.";
+
+            cargarHotelesAdmin();
+            cargarHoteles();
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            document.getElementById("mensajeHotelesAdmin").textContent =
+                "Error al desactivar el hotel.";
+        });
+}
+
+function cargarHabitacionesAdmin() {
+    let hotelId = document.getElementById("hotelHabitacion").value;
+    let tabla = document.getElementById("tablaHabitacionesAdmin");
+    let mensaje = document.getElementById("mensajeHabitacionesAdmin");
+
+    tabla.innerHTML = "";
+
+    if (hotelId == "") {
+        mensaje.textContent = "Selecciona un hotel para consultar sus habitaciones.";
+        return;
+    }
+
+    mensaje.textContent = "Consultando habitaciones...";
+
+    obtenerHabitaciones(hotelId)
+        .then(habitaciones => {
+            if (!Array.isArray(habitaciones)) {
+                mensaje.textContent = "Error al consultar las habitaciones.";
+                return;
+            }
+
+            if (habitaciones.length == 0) {
+                mensaje.textContent = "Este hotel no tiene habitaciones registradas.";
+                return;
+            }
+
+            mostrarHabitacionesAdmin(habitaciones);
+            mensaje.textContent = "Habitaciones encontradas: " + habitaciones.length;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = "Error al consultar las habitaciones.";
+        });
+}
+
+function mostrarHabitacionesAdmin(habitaciones) {
+    let tabla = document.getElementById("tablaHabitacionesAdmin");
+    tabla.innerHTML = "";
+
+    habitaciones.forEach(habitacion => {
+        tabla.innerHTML += `
+            <tr>
+                <td>${habitacion.idHabitacion}</td>
+                <td>${habitacion.numero}</td>
+                <td>${habitacion.tipo}</td>
+                <td>${habitacion.capacidad}</td>
+                <td>$${habitacion.precioNoche}</td>
+                <td>
+                    <button type="button" onclick="editarHabitacion(${habitacion.idHabitacion})">
+                        Editar
+                    </button>
+                    <button type="button" onclick="desactivarHabitacionAdmin(${habitacion.idHabitacion})">
+                        Desactivar
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+function limpiarHabitacion() {
+    document.getElementById("habitacionId").value = "";
+    document.getElementById("habitacionNumero").value = "";
+    document.getElementById("habitacionTipo").value = "";
+    document.getElementById("habitacionCapacidad").value = "";
+    document.getElementById("habitacionPrecio").value = "";
+    document.getElementById("habitacionDescripcion").value = "";
+}
+
+function guardarHabitacion() {
+    let id = document.getElementById("habitacionId").value;
+    let hotelId = document.getElementById("hotelHabitacion").value;
+    let numero = document.getElementById("habitacionNumero").value;
+    let tipo = document.getElementById("habitacionTipo").value;
+    let capacidad = document.getElementById("habitacionCapacidad").value;
+    let precio = document.getElementById("habitacionPrecio").value;
+    let descripcion = document.getElementById("habitacionDescripcion").value;
+    let mensaje = document.getElementById("mensajeHabitacionesAdmin");
+
+    if (hotelId == "" || numero == "" || tipo == "" ||
+        capacidad == "" || precio == "") {
+        mensaje.textContent = "Completa todos los campos obligatorios.";
+        return;
+    }
+
+    if (parseInt(capacidad) <= 0 || parseFloat(precio) <= 0) {
+        mensaje.textContent = "La capacidad y el precio deben ser mayores que cero.";
+        return;
+    }
+
+    let habitacion = {
+        numero: numero,
+        tipo: tipo,
+        capacidad: parseInt(capacidad),
+        precioNoche: parseFloat(precio),
+        descripcion: descripcion
+    };
+
+    let peticion;
+
+    if (id == "") {
+        peticion = registrarHabitacion(hotelId, habitacion);
+    } else {
+        peticion = actualizarHabitacion(id, habitacion);
+    }
+
+    mensaje.textContent = "Guardando habitación...";
+
+    peticion
+        .then(respuesta => {
+            mensaje.textContent = id == "" ?
+                "Habitación registrada correctamente." :
+                "Habitación actualizada correctamente.";
+
+            limpiarHabitacion();
+            cargarHabitacionesAdmin();
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = error.message || "Error al guardar la habitación.";
+        });
+}
+
+function editarHabitacion(id) {
+    obtenerHabitacion(id)
+        .then(habitacion => {
+            if (habitacion.mensaje) {
+                document.getElementById("mensajeHabitacionesAdmin").textContent =
+                    habitacion.mensaje;
+                return;
+            }
+
+            document.getElementById("habitacionId").value =
+                habitacion.idHabitacion;
+
+            document.getElementById("habitacionNumero").value =
+                habitacion.numero;
+
+            document.getElementById("habitacionTipo").value =
+                habitacion.tipo;
+
+            document.getElementById("habitacionCapacidad").value =
+                habitacion.capacidad;
+
+            document.getElementById("habitacionPrecio").value =
+                habitacion.precioNoche;
+
+            document.getElementById("habitacionDescripcion").value =
+                habitacion.descripcion || "";
+
+            document.getElementById("mensajeHabitacionesAdmin").textContent =
+                "Modificando habitación " + habitacion.numero;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            document.getElementById("mensajeHabitacionesAdmin").textContent =
+                "Error al consultar la habitación.";
+        });
+}
+
+function desactivarHabitacionAdmin(id) {
+    if (!confirm("¿Deseas desactivar esta habitación?")) {
+        return;
+    }
+
+    desactivarHabitacion(id)
+        .then(() => {
+            document.getElementById("mensajeHabitacionesAdmin").textContent =
+                "Habitación desactivada correctamente.";
+
+            limpiarHabitacion();
+            cargarHabitacionesAdmin();
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            document.getElementById("mensajeHabitacionesAdmin").textContent =
+                error.message || "Error al desactivar la habitación.";
+        });
+}
+
+function consultarReservacionesAdmin() {
+    let tabla = document.getElementById("tablaReservacionesAdmin");
+    let mensaje = document.getElementById("mensajeReservacionesAdmin");
+
+    if (rolUsuarioActual != "ADMIN") {
+        mensaje.textContent = "No tienes permisos para consultar las reservaciones.";
+        return;
+    }
+
+    tabla.innerHTML = "";
+    mensaje.textContent = "Consultando reservaciones...";
+
+    obtenerReservacionesAdmin()
+        .then(reservaciones => {
+            if (!Array.isArray(reservaciones)) {
+                mensaje.textContent = reservaciones.mensaje ||
+                    "Error al consultar las reservaciones.";
+                return;
+            }
+
+            if (reservaciones.length == 0) {
+                mensaje.textContent = "No hay reservaciones registradas.";
+                return;
+            }
+
+            reservaciones.forEach(reservacion => {
+                tabla.innerHTML += `
+                    <tr>
+                        <td>${reservacion.folio}</td>
+                        <td>${reservacion.id_usuario}</td>
+                        <td>${reservacion.nombre_hotel}</td>
+                        <td>${reservacion.numero_habitacion} - ${reservacion.tipo_habitacion}</td>
+                        <td>${reservacion.fecha_entrada}</td>
+                        <td>${reservacion.fecha_salida}</td>
+                        <td>$${reservacion.total}</td>
+                        <td>${reservacion.estado}</td>
+                    </tr>
+                `;
+            });
+
+            mensaje.textContent = "Reservaciones encontradas: " + reservaciones.length;
+        })
+        .catch(error => {
+            console.log("Error:", error);
+            mensaje.textContent = "Error al consultar las reservaciones.";
         });
 }
