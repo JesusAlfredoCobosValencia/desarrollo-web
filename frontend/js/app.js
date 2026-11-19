@@ -144,6 +144,7 @@ function reservarHabitacion(idHabitacion, entrada, salida, huespedes) {
             document.getElementById("pagoMonto").textContent =
                 "Total a pagar: $" + respuesta.total;
             document.getElementById("seccionPago").style.display = "block";
+            mostrarPagina("paginaPago");
             document.getElementById("mensajePago").textContent =
                 "Tu reservación está pendiente de pago.";
             mensaje.textContent = "Reservación creada correctamente.";
@@ -297,6 +298,7 @@ function mostrarConfirmacion(idReservacion) {
 
             document.getElementById("seccionConfirmacion").style.display =
                 "block";
+                mostrarPagina("paginaConfirmacion");
 
             document.getElementById("mensajeUsuario").textContent =
                 "Reservación confirmada correctamente.";
@@ -356,7 +358,7 @@ function login() {
             }
             rolUsuarioActual = respuesta.rol;
             if (rolUsuarioActual == "ADMIN") {
-                document.getElementById("botonAdmin").style.display = "inline-block";
+                document.getElementById("botonAdmin").style.display = "block";
             } else {
                 document.getElementById("botonAdmin").style.display = "none";
             }
@@ -411,20 +413,10 @@ function guardarPerfil() {
 
 function salir() {
     let mensaje = document.getElementById("mensajeUsuario");
+
     cerrarSesion()
-        .then(respuesta => {
-            if (respuesta && respuesta.mensaje) {
-                mensaje.textContent = respuesta.mensaje;
-                return;
-            }
-            document.getElementById("loginCorreo").value = "";
-            document.getElementById("loginPassword").value = "";
-            document.getElementById("perfilNombre").value = "";
-            document.getElementById("perfilTelefono").value = "";
-            rolUsuarioActual = "";
-            document.getElementById("botonAdmin").style.display = "none";
-            document.getElementById("seccionAdmin").style.display = "none";
-            mensaje.textContent = "Sesión cerrada correctamente.";
+        .then(() => {
+            window.location.reload();
         })
         .catch(error => {
             console.log("Error:", error);
@@ -593,7 +585,9 @@ function abrirPanelAdmin() {
         alert("No tienes permisos para acceder.");
         return;
     }
+
     document.getElementById("seccionAdmin").style.display = "block";
+    mostrarPagina("paginaAdmin");
     cargarHotelesAdmin();
 }
 
@@ -999,4 +993,63 @@ function consultarReservacionesAdmin() {
             console.log("Error:", error);
             mensaje.textContent = "Error al consultar las reservaciones.";
         });
+}
+
+function mostrarPagina(id) {
+    let paginas = document.querySelectorAll(".pagina");
+
+    paginas.forEach(pagina => {
+        pagina.classList.remove("activa");
+    });
+
+    document.getElementById(id).classList.add("activa");
+
+    let botones = document.querySelectorAll(".nav-link");
+
+    botones.forEach(boton => {
+        boton.classList.remove("activo");
+    });
+
+    let botonActivo = document.querySelector('[data-pagina="' + id + '"]');
+
+    if (botonActivo) {
+        botonActivo.classList.add("activo");
+    }
+
+    let titulos = {
+        paginaInicio: "Inicio",
+        paginaCuenta: "Mi cuenta",
+        paginaReservaciones: "Mis reservaciones",
+        paginaHistorial: "Historial de estancias",
+        paginaCancelaciones: "Cancelaciones",
+        paginaPago: "Pago de reservación",
+        paginaConfirmacion: "Confirmación",
+        paginaAdmin: "Panel administrativo"
+    };
+
+    document.getElementById("tituloPagina").textContent = titulos[id];
+}
+
+function navegarInicio() {
+    mostrarPagina("paginaInicio");
+    cargarHoteles();
+}
+
+function navegarCuenta() {
+    mostrarPagina("paginaCuenta");
+}
+
+function navegarReservaciones() {
+    mostrarPagina("paginaReservaciones");
+    verMisReservaciones();
+}
+
+function navegarHistorial() {
+    mostrarPagina("paginaHistorial");
+    verHistorial();
+}
+
+function navegarCancelaciones() {
+    mostrarPagina("paginaCancelaciones");
+    verCancelaciones();
 }

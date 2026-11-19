@@ -7,255 +7,272 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body onload="cargarHoteles()">
-    <header>
-        <h1>TwoVago</h1>
-        <p>Encuentra tu próximo alojamiento</p>
-    </header>
-    <main>
-        <section>
-            <h2>Crear cuenta</h2>
-            <input type="text" id="regNombre" placeholder="Nombre completo">
-            <input type="email" id="regCorreo" placeholder="Correo electrónico">
-            <input type="password" id="regPassword" placeholder="Contraseña">
-            <input type="text" id="regTelefono" placeholder="Teléfono">
-            <button type="button" onclick="registrar()">
-                Registrarse
-            </button>
-        </section>
-        <section>
-            <h2>Iniciar sesión</h2>
-            <input type="email" id="loginCorreo" placeholder="Correo electrónico">
-            <input type="password" id="loginPassword" placeholder="Contraseña">
-            <button type="button" onclick="login()">
-                Entrar
-            </button>
-        </section>
-        <section>
-            <h2>Mi perfil</h2>
-            <p>Nombre:</p>
-            <input type="text" id="perfilNombre" placeholder="Nombre completo">
-            <p>Teléfono:</p>
-            <input type="text" id="perfilTelefono" placeholder="Teléfono">
-            <br><br>
-            <button type="button" onclick="verPerfil()">
-                Consultar perfil
-            </button>
-            <button type="button" onclick="guardarPerfil()">
-                Guardar cambios
-            </button>
-            <button type="button" onclick="salir()">
-                Cerrar sesión
-            </button>
-            <button type="button" onclick="verMisReservaciones()">
-                Mis reservaciones
-            </button>
-            <button type="button" onclick="verHistorial()">
-                Historial de estancias
-            </button>
-            <button type="button" onclick="verCancelaciones()">
-                Cancelaciones
-            </button>
-            <button type="button" id="botonAdmin" style="display: none;" onclick="abrirPanelAdmin()">
-                Panel administrativo
-            </button>
-        </section>
-        <div id="mensajeUsuario"></div>
-        <input type="hidden" id="idPagoActual">
-        <section id="seccionPago" style="display: none;">
-            <h2>Pago de reservación</h2>
-            <p id="pagoFolio"></p>
-            <p id="pagoMonto"></p>
-            <h3>Tiempo para realizar el pago</h3>
-            <p id="contadorPago">10:00</p>
-            <p>Selecciona tu método de pago:</p>
-            <select id="metodoPago">
-                <option value="TARJETA_SIMULADA">Tarjeta</option>
-                <option value="TRANSFERENCIA_SIMULADA">Transferencia</option>
-                <option value="EFECTIVO_SIMULADO">Efectivo</option>
-            </select>
-            <br><br>
-            <button type="button" onclick="consultarPagoActual()">
-                Consultar pago
-            </button>
-            <button type="button" onclick="pagarReservacion()">
-                Confirmar pago
-            </button>
-            <div id="mensajePago"></div>
-        </section>
-        <section id="seccionConfirmacion" style="display: none;">
-            <h2>¡Reservación confirmada!</h2>
-            <p id="confirmacionFolio"></p>
-            <p id="confirmacionHotel"></p>
-            <p id="confirmacionCiudad"></p>
-            <p id="confirmacionHabitacion"></p>
-            <p id="confirmacionTipo"></p>
-            <p id="confirmacionEntrada"></p>
-            <p id="confirmacionSalida"></p>
-            <p id="confirmacionHuespedes"></p>
-            <p id="confirmacionTotal"></p>
-            <p id="confirmacionEstado"></p>
-        </section>
-        <section id="seccionReservaciones">
-            <h2>Mis reservaciones</h2>
-            <button type="button" onclick="verMisReservaciones()">
-                Consultar reservaciones
-            </button>
-            <div id="mensajeReservaciones"></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Folio</th>
-                        <th>Hotel</th>
-                        <th>Ciudad</th>
-                        <th>Habitación</th>
-                        <th>Entrada</th>
-                        <th>Salida</th>
-                        <th>Huéspedes</th>
-                        <th>Total</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaReservaciones">
-                </tbody>
-            </table>
-        </section>
-        <section id="seccionHistorial">
-            <h2>Historial de estancias</h2>
-            <button type="button" onclick="verHistorial()">
-                Consultar historial
-            </button>
-            <div id="mensajeHistorial"></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hotel</th>
-                        <th>Ciudad</th>
-                        <th>Habitación</th>
-                        <th>Entrada</th>
-                        <th>Salida</th>
-                        <th>Importe</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaHistorial">
-                </tbody>
-            </table>
-        </section>
-        <section id="seccionCancelaciones">
-            <h2>Cancelaciones y reservaciones expiradas</h2>
-            <button type="button" onclick="verCancelaciones()">
-                Consultar cancelaciones
-            </button>
-            <div id="mensajeCancelaciones"></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hotel</th>
-                        <th>Habitación</th>
-                        <th>Entrada</th>
-                        <th>Salida</th>
-                        <th>Fecha de cancelación</th>
-                        <th>Importe</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaCancelaciones">
-                </tbody>
-            </table>
-        </section>
-        <section id="seccionAdmin" style="display: none;">
-            <h2>Panel administrativo</h2>
-            <section>
-                <h3>Administrar hoteles</h3>
-                <input type="hidden" id="hotelId">
-                <input type="text" id="hotelNombre" placeholder="Nombre del hotel">
-                <input type="text" id="hotelCiudad" placeholder="Ciudad">
-                <input type="text" id="hotelDireccion" placeholder="Dirección">
-                <textarea id="hotelDescripcion" placeholder="Descripción"></textarea>
-                <input type="number" id="hotelCategoria" placeholder="Categoría de 1 a 5" min="1" max="5">
-                <input type="text" id="hotelImagenUrl" placeholder="URL de imagen">
-                <input type="text" id="hotelServicios" placeholder="Servicios">
-                <button type="button" onclick="guardarHotel()">Guardar hotel</button>
-                <button type="button" onclick="limpiarHotel()">Limpiar campos</button>
-                <div id="mensajeHotelesAdmin"></div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Ciudad</th>
-                            <th>Dirección</th>
-                            <th>Categoría</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaHotelesAdmin"></tbody>
-                </table>
+    <div class="contenedor">
+        <aside class="menu">
+            <h2>TwoVago</h2>
+            <p>Encuentra tu próxima casa</p>
+
+            <nav>
+                <button class="nav-link activo" data-pagina="paginaInicio" onclick="navegarInicio()">Inicio</button>
+                <button class="nav-link" data-pagina="paginaCuenta" onclick="navegarCuenta()">Mi cuenta</button>
+                <button class="nav-link" data-pagina="paginaReservaciones" onclick="navegarReservaciones()">Mis reservaciones</button>
+                <button class="nav-link" data-pagina="paginaHistorial" onclick="navegarHistorial()">Historial de estancias</button>
+                <button class="nav-link" data-pagina="paginaCancelaciones" onclick="navegarCancelaciones()">Cancelaciones</button>
+                <button class="nav-link" id="botonAdmin" data-pagina="paginaAdmin" style="display: none;" onclick="abrirPanelAdmin()">Panel administrativo</button>
+            </nav>
+
+            <button type="button" class="cerrar-sesion" onclick="salir()">Cerrar sesión</button>
+        </aside>
+
+        <main class="contenido">
+            <header>
+                <h1 id="tituloPagina">Inicio</h1>
+            </header>
+
+            <div id="mensajeUsuario"></div>
+            <input type="hidden" id="idPagoActual">
+
+            <section id="paginaInicio" class="pagina activa">
+                <section class="panel">
+                    <h2>Buscar hoteles</h2>
+                    <input type="text" id="ciudad" placeholder="Escribe una ciudad">
+                    <button type="button" onclick="buscar()">Buscar</button>
+                </section>
+
+                <section class="panel">
+                    <h2>Hoteles disponibles</h2>
+                    <div id="resultado">
+                        Cargando hoteles...
+                    </div>
+                </section>
             </section>
-            <section>
-                <h3>Administrar habitaciones</h3>
-                <input type="hidden" id="habitacionId">
-                <select id="hotelHabitacion" onchange="cargarHabitacionesAdmin()">
-                    <option value="">Selecciona un hotel</option>
-                </select>
-                <input type="text" id="habitacionNumero" placeholder="Número de habitación">
-                <input type="text" id="habitacionTipo" placeholder="Tipo de habitación">
-                <input type="number" id="habitacionCapacidad" placeholder="Capacidad">
-                <input type="number" id="habitacionPrecio" placeholder="Precio por noche" step="0.01">
-                <textarea id="habitacionDescripcion" placeholder="Descripción"></textarea>
-                <button type="button" onclick="guardarHabitacion()">Guardar habitación</button>
-                <button type="button" onclick="limpiarHabitacion()">Limpiar campos</button>
-                <div id="mensajeHabitacionesAdmin"></div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Número</th>
-                            <th>Tipo</th>
-                            <th>Capacidad</th>
-                            <th>Precio</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaHabitacionesAdmin"></tbody>
-                </table>
+
+            <section id="paginaCuenta" class="pagina">
+                <div class="dos-columnas">
+                    <section class="panel">
+                        <h2>Crear cuenta</h2>
+                        <input type="text" id="regNombre" placeholder="Nombre completo">
+                        <input type="email" id="regCorreo" placeholder="Correo electrónico">
+                        <input type="password" id="regPassword" placeholder="Contraseña">
+                        <input type="text" id="regTelefono" placeholder="Teléfono">
+                        <button type="button" onclick="registrar()">Registrarse</button>
+                    </section>
+
+                    <section class="panel">
+                        <h2>Iniciar sesión</h2>
+                        <input type="email" id="loginCorreo" placeholder="Correo electrónico">
+                        <input type="password" id="loginPassword" placeholder="Contraseña">
+                        <button type="button" onclick="login()">Entrar</button>
+                    </section>
+                </div>
+
+                <section class="panel">
+                    <h2>Mi perfil</h2>
+                    <p>Nombre:</p>
+                    <input type="text" id="perfilNombre" placeholder="Nombre completo">
+                    <p>Teléfono:</p>
+                    <input type="text" id="perfilTelefono" placeholder="Teléfono">
+                    <button type="button" onclick="verPerfil()">Consultar perfil</button>
+                    <button type="button" onclick="guardarPerfil()">Guardar cambios</button>
+                </section>
             </section>
-            <section>
-                <h3>Reservaciones de la plataforma</h3>
-                <button type="button" onclick="consultarReservacionesAdmin()">
-                    Consultar reservaciones
-                </button>
-                <div id="mensajeReservacionesAdmin"></div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Folio</th>
-                            <th>Usuario</th>
-                            <th>Hotel</th>
-                            <th>Habitación</th>
-                            <th>Entrada</th>
-                            <th>Salida</th>
-                            <th>Total</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaReservacionesAdmin"></tbody>
-                </table>
+
+            <section id="paginaReservaciones" class="pagina">
+                <section id="seccionReservaciones" class="panel">
+                    <h2>Mis reservaciones</h2>
+                    <button type="button" onclick="verMisReservaciones()">Consultar reservaciones</button>
+                    <div id="mensajeReservaciones"></div>
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Folio</th>
+                                    <th>Hotel</th>
+                                    <th>Ciudad</th>
+                                    <th>Habitación</th>
+                                    <th>Entrada</th>
+                                    <th>Salida</th>
+                                    <th>Huéspedes</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaReservaciones"></tbody>
+                        </table>
+                    </div>
+                </section>
             </section>
-        </section>
-        <section>
-            <h2>Buscar hoteles</h2>
-            <input type="text" id="ciudad" placeholder="Escribe una ciudad">
-            <button type="button" onclick="buscar()">Buscar</button>
-        </section>
-        <section>
-            <h2>Hoteles disponibles</h2>
-            <div id="resultado">
-                Cargando hoteles...
-            </div>
-        </section>
-    </main>
+
+            <section id="paginaHistorial" class="pagina">
+                <section id="seccionHistorial" class="panel">
+                    <h2>Historial de estancias</h2>
+                    <button type="button" onclick="verHistorial()">Consultar historial</button>
+                    <div id="mensajeHistorial"></div>
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Hotel</th>
+                                    <th>Ciudad</th>
+                                    <th>Habitación</th>
+                                    <th>Entrada</th>
+                                    <th>Salida</th>
+                                    <th>Importe</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaHistorial"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section id="paginaCancelaciones" class="pagina">
+                <section id="seccionCancelaciones" class="panel">
+                    <h2>Cancelaciones y reservaciones expiradas</h2>
+                    <button type="button" onclick="verCancelaciones()">Consultar cancelaciones</button>
+                    <div id="mensajeCancelaciones"></div>
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Hotel</th>
+                                    <th>Habitación</th>
+                                    <th>Entrada</th>
+                                    <th>Salida</th>
+                                    <th>Fecha de cancelación</th>
+                                    <th>Importe</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaCancelaciones"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section id="paginaPago" class="pagina">
+                <section id="seccionPago" class="panel" style="display: none;">
+                    <h2>Pago de reservación</h2>
+                    <p id="pagoFolio"></p>
+                    <p id="pagoMonto"></p>
+                    <h3>Tiempo para realizar el pago</h3>
+                    <h2 id="contadorPago">10:00</h2>
+                    <p>Selecciona tu método de pago:</p>
+                    <select id="metodoPago">
+                        <option value="TARJETA_SIMULADA">Tarjeta</option>
+                        <option value="TRANSFERENCIA_SIMULADA">Transferencia</option>
+                        <option value="EFECTIVO_SIMULADO">Efectivo</option>
+                    </select>
+                    <br><br>
+                    <button type="button" onclick="consultarPagoActual()">Consultar pago</button>
+                    <button type="button" onclick="pagarReservacion()">Confirmar pago</button>
+                    <div id="mensajePago"></div>
+                </section>
+            </section>
+
+            <section id="paginaConfirmacion" class="pagina">
+                <section id="seccionConfirmacion" class="panel" style="display: none;">
+                    <h2>¡Reservación confirmada!</h2>
+                    <p id="confirmacionFolio"></p>
+                    <p id="confirmacionHotel"></p>
+                    <p id="confirmacionCiudad"></p>
+                    <p id="confirmacionHabitacion"></p>
+                    <p id="confirmacionTipo"></p>
+                    <p id="confirmacionEntrada"></p>
+                    <p id="confirmacionSalida"></p>
+                    <p id="confirmacionHuespedes"></p>
+                    <p id="confirmacionTotal"></p>
+                    <p id="confirmacionEstado"></p>
+                    <button type="button" onclick="navegarReservaciones()">Ver mis reservaciones</button>
+                </section>
+            </section>
+
+            <section id="paginaAdmin" class="pagina">
+                <section id="seccionAdmin" class="panel" style="display: none;">
+                    <h2>Administrar hoteles</h2>
+                    <input type="hidden" id="hotelId">
+                    <input type="text" id="hotelNombre" placeholder="Nombre del hotel">
+                    <input type="text" id="hotelCiudad" placeholder="Ciudad">
+                    <input type="text" id="hotelDireccion" placeholder="Dirección">
+                    <textarea id="hotelDescripcion" placeholder="Descripción"></textarea>
+                    <input type="number" id="hotelCategoria" placeholder="Categoría de 1 a 5" min="1" max="5">
+                    <input type="text" id="hotelImagenUrl" placeholder="URL de imagen">
+                    <input type="text" id="hotelServicios" placeholder="Servicios">
+                    <button type="button" onclick="guardarHotel()">Guardar hotel</button>
+                    <button type="button" onclick="limpiarHotel()">Limpiar campos</button>
+                    <div id="mensajeHotelesAdmin"></div>
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Ciudad</th>
+                                    <th>Dirección</th>
+                                    <th>Categoría</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaHotelesAdmin"></tbody>
+                        </table>
+                    </div>
+
+                    <h2>Administrar habitaciones</h2>
+                    <input type="hidden" id="habitacionId">
+                    <select id="hotelHabitacion" onchange="cargarHabitacionesAdmin()">
+                        <option value="">Selecciona un hotel</option>
+                    </select>
+                    <input type="text" id="habitacionNumero" placeholder="Número de habitación">
+                    <input type="text" id="habitacionTipo" placeholder="Tipo de habitación">
+                    <input type="number" id="habitacionCapacidad" placeholder="Capacidad">
+                    <input type="number" id="habitacionPrecio" placeholder="Precio por noche" step="0.01">
+                    <textarea id="habitacionDescripcion" placeholder="Descripción"></textarea>
+                    <button type="button" onclick="guardarHabitacion()">Guardar habitación</button>
+                    <button type="button" onclick="limpiarHabitacion()">Limpiar campos</button>
+                    <div id="mensajeHabitacionesAdmin"></div>
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Número</th>
+                                    <th>Tipo</th>
+                                    <th>Capacidad</th>
+                                    <th>Precio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaHabitacionesAdmin"></tbody>
+                        </table>
+                    </div>
+
+                    <h2>Reservaciones de la plataforma</h2>
+                    <button type="button" onclick="consultarReservacionesAdmin()">Consultar reservaciones</button>
+                    <div id="mensajeReservacionesAdmin"></div>
+                    <div class="tabla-contenedor">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Folio</th>
+                                    <th>Usuario</th>
+                                    <th>Hotel</th>
+                                    <th>Habitación</th>
+                                    <th>Entrada</th>
+                                    <th>Salida</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaReservacionesAdmin"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
     <script src="js/api.js"></script>
     <script src="js/app.js"></script>
 </body>
