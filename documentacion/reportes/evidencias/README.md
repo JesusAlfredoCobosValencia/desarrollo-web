@@ -1,6 +1,6 @@
 # Evidencias del proyecto TwoVago
 
-**Entregables:** R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados  
+**Entregables:** R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados; R4 — Frontend e integración del sistema. 
 **Equipo:** TwoVago  
 **Repositorio:** https://github.com/JesusAlfredoCobosValencia/desarrollo-web
 
@@ -8,7 +8,7 @@
 
 ## 1. Objetivo
 
-Esta carpeta contiene las evidencias visuales de las actividades realizadas durante los entregables R2 y R3 del proyecto TwoVago.
+Esta carpeta contiene las evidencias visuales de las actividades realizadas durante los entregables R2, R3 y R4 del proyecto TwoVago.
 
 Las capturas permiten comprobar la configuración de Spring Boot, la conexión con MySQL, la creación de entidades y componentes de acceso a datos, la implementación de usuarios y reservaciones, así como las pruebas realizadas mediante Maven, CURL y los scripts automatizados.
 
@@ -115,3 +115,37 @@ Versión: R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones
 - E3_13: expiración automática de reservaciones y pagos.
 - E3_14: cancelación, historial y liberación de habitaciones.
 - E3_15: resultados de las pruebas automatizadas.
+
+
+## 8. Evidencias R4 — Frontend e integración
+
+Las siguientes capturas documentan las pruebas funcionales realizadas desde el navegador durante la integración del frontend con el backend.
+
+| Archivo | Descripción |
+|---|---|
+| `E4_01_Inicio_Sesion_Administrador.png` | Inicio de sesión con cuenta administrativa. |
+| `E4_02_Panel_Administrativo_Hoteles.png` | Panel de administración de hoteles. |
+| `E4_03_Administracion_Habitaciones.png` | Administración de habitaciones. |
+| `E4_04_Consulta_Reservaciones_Administrador.png` | Consulta de reservaciones desde el panel administrativo. |
+| `E4_05_Registro_Cliente.png` | Registro de una cuenta de cliente. |
+| `E4_06_Inicio_Sesion_Cliente.png` | Inicio de sesión de un cliente. |
+| `E4_07_Consulta_Habitaciones.png` | Consulta de habitaciones disponibles. |
+| `E4_08_Consulta_Disponibilidad.png` | Consulta de disponibilidad según fechas y huéspedes. |
+| `E4_09_Reservacion_Creada.png` | Creación de una reservación. |
+| `E4_10_Mis_Reservaciones_Confirmada.png` | Consulta de una reservación confirmada. |
+| `E4_11_Cancelacion_Reservacion.png` | Cancelación de una reservación. |
+| `E4_12_Consulta_Cancelaciones_Cliente.png` | Consulta de cancelaciones del cliente. |
+| `E4_13_Historial_Estancias_Cliente.png` | Historial de estancias del cliente. |
+| `E4_14_Consulta_Perfil_Cliente.png` | Consulta de información del perfil. |
+| `E4_15_Actualizacion_Perfil_Cliente.png` | Actualización de datos personales. |
+| `E4_16_Reservaciones_Expiradas.png` | Consulta de reservaciones expiradas. |
+| `E4_17_Manejo_Errores_Login.png` | Validación de errores de autenticación. |
+| `E4_18_Cierre_Sesion.png` | Cierre de sesión del cliente. |
+
+## 9. Reporte relacionado
+
+El reporte correspondiente a esta entrega se encuentra en:
+
+- `../r-act-4.md`
+
+Las evidencias R4 complementan los registros de las entregas anteriores y documentan la integración y funcionamiento de las interfaces de TwoVago
