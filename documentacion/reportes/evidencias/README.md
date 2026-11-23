@@ -1,6 +1,7 @@
 # Evidencias del proyecto TwoVago
 
-**Entregables:** R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados; R4 — Frontend e integración del sistema. 
+**Entregables:** R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados; R4 — Frontend e integración del sistema; R5 — Pruebas funcionales y validación de acceso.
+
 **Equipo:** TwoVago  
 **Repositorio:** https://github.com/JesusAlfredoCobosValencia/desarrollo-web
 
@@ -8,9 +9,9 @@
 
 ## 1. Objetivo
 
-Esta carpeta contiene las evidencias visuales de las actividades realizadas durante los entregables R2, R3 y R4 del proyecto TwoVago.
+Esta carpeta contiene las evidencias visuales de las actividades realizadas durante los entregables R2, R3, R4 y R5 del proyecto TwoVago.
 
-Las capturas permiten comprobar la configuración de Spring Boot, la conexión con MySQL, la creación de entidades y componentes de acceso a datos, la implementación de usuarios y reservaciones, así como las pruebas realizadas mediante Maven, CURL y los scripts automatizados.
+Las capturas permiten comprobar la configuración de Spring Boot, la conexión con MySQL, la creación de entidades y componentes de acceso a datos, la implementación de usuarios y reservaciones, así como las pruebas de integración del frontend con el backend y las validaciones funcionales realizadas desde el navegador.
 
 ## 2. Relación de evidencias
 
@@ -62,7 +63,7 @@ Las capturas permiten comprobar la configuración de Spring Boot, la conexión c
 
 ## 3. Organización
 
-Las capturas se encuentran almacenadas en esta carpeta y utilizan la nomenclatura E2 y E3 para identificar el entregable al que pertenecen.
+Las capturas se encuentran almacenadas en esta carpeta y utilizan la nomenclatura E2, E3, E4 y E5 para identificar el entregable al que pertenecen.
 
 Cada imagen respalda una actividad específica del desarrollo del proyecto. Las evidencias E3_13 y E3_14 corresponden, respectivamente, a la expiración automática y a la cancelación e historial de reservaciones.
 
@@ -83,9 +84,13 @@ Cada imagen respalda una actividad específica del desarrollo del proyecto. Las 
 
 Las evidencias E2 corresponden al desarrollo inicial del backend y la conexión con MySQL. Las evidencias E3 documentan el registro y autenticación de usuarios, perfiles, permisos, disponibilidad, reservaciones, pagos simulados, cancelaciones y expiraciones.
 
+Las evidencias E4 documentan la integración del frontend con el backend y las operaciones realizadas desde las interfaces de usuario y administración.
+
+Las evidencias E5 corresponden a las pruebas funcionales del sistema, incluyendo registro, autenticación, consulta y actualización de perfiles, búsqueda de hoteles, disponibilidad, reservaciones, pagos, cancelaciones e historial de estancias. También documentan las restricciones de acceso a las secciones privadas cuando no existe una sesión iniciada.
+
 Las capturas E3_04_01 y E3_04_02 muestran una configuración inicial de BCrypt que se probó durante el desarrollo y se retiró en la versión final.
 
-La ejecución final de las pruebas automatizadas registró 55 pruebas correctas, 0 fallidas y 0 omitidas. El reporte se encuentra en `../resultados-pruebas-e3.txt`.
+La ejecución final de las pruebas automatizadas de R3 registró 55 pruebas correctas, 0 fallidas y 0 omitidas. El reporte se encuentra en `../resultados-pruebas-e3.txt`.
 
 ## 6. Reporte relacionado
 
@@ -93,16 +98,19 @@ Los reportes correspondientes a las evidencias se encuentran en:
 
 - `../r-act-2.md`
 - `../r-act-3.md`
+- `../r-act-4.md`
+- `../r-act-5.md`
 
 Las notas de versión se encuentran en:
 
 - `../release-notes-r2.md`
 - `../release-notes-r3.md`
+- `../release-notes-r5.md`
 
 ---
 
 Proyecto: TwoVago  
-Versión: R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados
+Versión: R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones y pagos simulados; R4 — Frontend e integración del sistema; R5 — Pruebas funcionales y validación de acceso.
 
 ## 7. Evidencias R3 incorporadas
 
@@ -115,7 +123,6 @@ Versión: R2 — Backend básico y base de datos; R3 — Usuarios, reservaciones
 - E3_13: expiración automática de reservaciones y pagos.
 - E3_14: cancelación, historial y liberación de habitaciones.
 - E3_15: resultados de las pruebas automatizadas.
-
 
 ## 8. Evidencias R4 — Frontend e integración
 
@@ -148,4 +155,43 @@ El reporte correspondiente a esta entrega se encuentra en:
 
 - `../r-act-4.md`
 
-Las evidencias R4 complementan los registros de las entregas anteriores y documentan la integración y funcionamiento de las interfaces de TwoVago
+Las evidencias R4 complementan los registros de las entregas anteriores y documentan la integración y funcionamiento de las interfaces de TwoVago.
+
+## 10. Evidencias R5 — Pruebas funcionales y validación de acceso
+
+Las siguientes capturas documentan las pruebas funcionales realizadas durante la quinta entrega. Se comprueba el funcionamiento de los módulos de usuarios, perfiles, hoteles, habitaciones, disponibilidad, reservaciones y pagos, así como las restricciones de acceso a las secciones privadas del sistema.
+
+| Archivo | Descripción |
+|---|---|
+| `E5_01_Registro_Cliente.png` | Registro de una nueva cuenta de cliente. |
+| `E5_02_Inicio_Sesion_Cliente.png` | Inicio de sesión con una cuenta de cliente registrada. |
+| `E5_03_Consulta_Perfil_Cliente.png` | Consulta de los datos del perfil del cliente. |
+| `E5_04_Actualizacion_Perfil_Cliente.png` | Actualización de la información personal del cliente. |
+| `E5_05_Busqueda_Hoteles_Ciudad.png` | Búsqueda y consulta de hoteles por ciudad. |
+| `E5_06_Consulta_Habitaciones.png` | Consulta de las habitaciones disponibles de un hotel. |
+| `E5_07_Consulta_Disponibilidad.png` | Consulta de disponibilidad según fechas y número de huéspedes. |
+| `E5_08_Reservacion_Creada.png` | Creación de una reservación y generación de su folio. |
+| `E5_09_Pago_Confirmado.png` | Confirmación del pago y visualización de los datos de la reservación. |
+| `E5_10_Mis_Reservaciones.png` | Consulta de las reservaciones registradas para el cliente. |
+| `E5_11_Cancelacion_Reservacion.png` | Cancelación de una reservación existente. |
+| `E5_12_Consulta_Cancelaciones.png` | Consulta de las reservaciones canceladas y expiradas. |
+| `E5_13_Historial_Estancias.png` | Consulta del historial de estancias del cliente. |
+| `E5_14_Cierre_Sesion.png` | Cierre de sesión de la cuenta del cliente. |
+| `E5_15_Error_Inicio_Sesion.png` | Validación del manejo de errores al introducir datos incorrectos durante el inicio de sesión. |
+| `E5_16_Error_Registro_Duplicado.png` | Validación del rechazo de registros con datos de una cuenta existente. |
+| `E5_17_Acceso_Perfil_Sin_Sesion.png` | Comprobación de la restricción de acceso al perfil cuando no existe una sesión iniciada. |
+| `E5_18_Acceso_Reservaciones_Sin_Sesion.png` | Comprobación de la restricción de acceso a las reservaciones sin una sesión iniciada. |
+| `E5_19_Acceso_Historial_Sin_Sesion.png` | Comprobación de la restricción de acceso al historial de estancias sin una sesión iniciada. |
+| `E5_20_Acceso_Cancelaciones_Sin_Sesion.png` | Comprobación de la restricción de acceso a las cancelaciones sin una sesión iniciada. |
+
+## 11. Reporte relacionado
+
+El reporte correspondiente a esta entrega se encuentra en:
+
+- `../r-act-5.md`
+
+Las notas de versión correspondientes se encuentran en:
+
+- `../release-notes-r5.md`
+
+Las evidencias R5 complementan las entregas anteriores y permiten documentar las pruebas funcionales de los módulos de TwoVago, incluyendo las operaciones de los clientes y las restricciones de acceso a las secciones que requieren autenticación.
