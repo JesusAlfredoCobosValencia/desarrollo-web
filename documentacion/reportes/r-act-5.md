@@ -56,6 +56,7 @@ Los cambios realizados durante R5 se identificaron mediante los commits registra
 | Incorporación de evidencias de pruebas funcionales R5 | Jesús Alfredo Cobos Valencia | [fe3c214](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/fe3c214) |
 | Incorporación de evidencias faltantes de pruebas funcionales R5 | Francisco Báez Rodríguez | [658b4c4](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/658b4c4) |
 | Corrección de detalles R5 | Francisco Báez Rodríguez | [77a8449](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/77a8449) |
+| Documentación final y cierre de entrega R5 | Emanuel Hernández Ochoa | [dc284e6](https://github.com/JesusAlfredoCobosValencia/desarrollo-web/commit/dc284e6) |
 
 ## 2.2. Evidencias de funcionamiento
 
@@ -198,7 +199,7 @@ Las contribuciones de R5 se identificaron mediante el historial de GitHub y las 
 
 - **Jesús Alfredo Cobos Valencia:** realizó pruebas funcionales de los módulos de registro, autenticación, perfiles, búsqueda de hoteles, habitaciones, disponibilidad, reservaciones, pagos, cancelaciones y validaciones. Incorporó las primeras 16 capturas de evidencia E5 mediante el commit `fe3c214`.
 
-- **Emanuel Hernández Ochoa:** se encargo de la elaboración del reporte de actividades R5 y de la integración, revisión y organización de la documentación correspondiente a esta entrega. commit 
+- **Emanuel Hernández Ochoa:** se encargo de la elaboración del reporte de actividades R5 y de la integración, revisión y organización de la documentación correspondiente a esta entrega, commit `dc284e6`.
 
 - **Francisco Báez Rodríguez:** realizó pruebas adicionales de acceso a las secciones protegidas sin una sesión iniciada e incorporó las evidencias E5_17 a E5_20 mediante el commit `658b4c4`.
 

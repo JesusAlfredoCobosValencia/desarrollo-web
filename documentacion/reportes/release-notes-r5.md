@@ -110,6 +110,8 @@ Commits relacionados:
 - Consolidación de los registros de evidencias.
 - Preparación de la documentación de cierre de la quinta entrega.
 
+Commits relacionados: `dc284e6` — Documentacion final y r5.
+
 
 
 ## 6. Pruebas y evidencias
